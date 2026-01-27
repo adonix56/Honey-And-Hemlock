@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3002099494711826355
+--- !u!1001 &754172673065071640
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,14 +11,18 @@ PrefabInstance:
     - target: {fileID: 20152027545149106, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 3789918054430257205, guid: cf768517b0c47cb44ae8fd36c280f225, type: 3}
+      objectReference: {fileID: -8844002787981987195, guid: 77905ba638c469c40a89357bbcf43fe1, type: 3}
     - target: {fileID: 1014503345828907207, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 3789918054430257205, guid: cf768517b0c47cb44ae8fd36c280f225, type: 3}
+      objectReference: {fileID: -8844002787981987195, guid: 77905ba638c469c40a89357bbcf43fe1, type: 3}
     - target: {fileID: 4531934425849920125, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
       propertyPath: m_Name
-      value: Hemlock
+      value: Honey
+      objectReference: {fileID: 0}
+    - target: {fileID: 6722817115186512134, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.312
       objectReference: {fileID: 0}
     - target: {fileID: 7349540022862343158, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
       propertyPath: m_LocalPosition.x

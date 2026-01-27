@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4820398317238416801
+--- !u!1001 &6083339616864316565
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -11,10 +11,10 @@ PrefabInstance:
     - target: {fileID: 2224777332549844804, guid: b56f056217e06c542a3966b31bb4e329, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 157004914255487043, guid: 250b59b0a7d53534f9f31d12a4b1dcc4, type: 3}
+      objectReference: {fileID: 4950786440372709550, guid: 6540ecf910a8cf34f9f0832a737aef88, type: 3}
     - target: {fileID: 3230726944314415572, guid: b56f056217e06c542a3966b31bb4e329, type: 3}
       propertyPath: m_Name
-      value: HemlockCork
+      value: HoneyCork
       objectReference: {fileID: 0}
     - target: {fileID: 5415951651901042722, guid: b56f056217e06c542a3966b31bb4e329, type: 3}
       propertyPath: m_LocalPosition.x
@@ -59,7 +59,7 @@ PrefabInstance:
     - target: {fileID: 6602386436370039277, guid: b56f056217e06c542a3966b31bb4e329, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 157004914255487043, guid: 250b59b0a7d53534f9f31d12a4b1dcc4, type: 3}
+      objectReference: {fileID: 4950786440372709550, guid: 6540ecf910a8cf34f9f0832a737aef88, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
