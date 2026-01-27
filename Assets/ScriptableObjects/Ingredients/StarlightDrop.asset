@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37fa80ed813d9264287ef017033e61c1, type: 3}
   m_Name: StarlightDrop
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
-  _type: 0
-  _displayName: 
+  _type: 11
+  _displayName: Starlight Drop

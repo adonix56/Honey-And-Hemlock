@@ -16,6 +16,22 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: -8844002787981987195, guid: 77905ba638c469c40a89357bbcf43fe1, type: 3}
+    - target: {fileID: 2777553935751528683, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.306
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777553935751528683, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777553935751528683, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777553935751528683, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
     - target: {fileID: 4531934425849920125, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
       propertyPath: m_Name
       value: Honey
@@ -24,6 +40,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.312
       objectReference: {fileID: 0}
+    - target: {fileID: 7233745227215818309, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 61a0f01e07a66f74799b134c0b39051a, type: 2}
     - target: {fileID: 7349540022862343158, guid: e70020efbdbd9704688278658dab3e3c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

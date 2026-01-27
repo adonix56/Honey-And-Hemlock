@@ -613,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4053579577978487484, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 9
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 5456733348963664102, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RaycastMask.m_Bits
@@ -621,7 +621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6436123941575367715, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_PhysicsLayerMask.m_Bits
-      value: 9
+      value: 73
       objectReference: {fileID: 0}
     - target: {fileID: 7983627650908746089, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_LinePropertyAnimationSpeed
@@ -2423,10 +2423,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5605562482862971382, guid: 9311aa0fbe1645a40a4ca9b7ccfe00a1, type: 3}
-      propertyPath: _data
-      value: 
-      objectReference: {fileID: 11400000, guid: 2756da7389002b443af7ba879b60211f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2968,10 +2964,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Honey
       objectReference: {fileID: 0}
-    - target: {fileID: 7932018692441373277, guid: 8a221f0f3e4a07e44a0fa1e7ee89c3db, type: 3}
-      propertyPath: _data
-      value: 
-      objectReference: {fileID: 11400000, guid: 61a0f01e07a66f74799b134c0b39051a, type: 2}
     - target: {fileID: 8037117441125408750, guid: 8a221f0f3e4a07e44a0fa1e7ee89c3db, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.79162

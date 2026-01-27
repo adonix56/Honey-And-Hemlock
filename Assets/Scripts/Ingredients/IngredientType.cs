@@ -2,9 +2,19 @@ namespace HoneyAndHemlock.Ingredients
 {
     public enum IngredientType
     {
+        RedMushroom,
+        BlueCrystal,
+        Eyeball,
+        OldBone,
+        Feather,
+        VoidMushroom,
+
         Honey,
         Hemlock,
-        RedMushroom,
-        Mint,
+        Moonwater,
+        BloodrootExtract,
+
+        TearsOfDawn,
+        StarlightDrop,
     }
 }

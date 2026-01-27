@@ -1,17 +1,83 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace HoneyAndHemlock.Ingredients
 {
     public class PourableContainer : XRGrabInteractable, IIngredientSource
     {
+        private const float MAX_DOT_PRODUCT = 1f;
+
         [Header("Ingredient Configuration")]
-        [SerializeField] private IngredientSO _data;
+        [SerializeField] 
+        private IngredientSO _data;
+        [SerializeField] 
+        private XRSocketInteractor _corkSocket;
+        [SerializeField]
+        private ParticleSystem _particleSystem;
+        [SerializeField, Range(-1f, 1f), Tooltip("Signifies at what dot product value to start pouring. -1f is straight up, 1f is straight down, 0f is horizontal")] 
+        private float _pourThreshold;
+        [SerializeField, Range(0f, 10f)]
+        private float _minPourSpeed;
+        [SerializeField, Range(0f, 50f)]
+        private float _maxPourSpeed;
 
         public IngredientType IngredientType => _data != null ? _data.Type : default;
         public IngredientSO Data => _data;
         public IngredientDeliveryMethod DeliveryMethod => IngredientDeliveryMethod.Pour;
 
+        ParticleSystem.EmissionModule emission;
 
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            _particleSystem ??= GetComponentInChildren<ParticleSystem>();
+            _corkSocket ??= GetComponentInChildren<XRSocketInteractor>();
+        }
+#endif
+
+        private void Start()
+        {
+            emission = _particleSystem.emission;
+        }
+
+        public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
+        {
+            base.ProcessInteractable(updatePhase);
+
+            // Ensures we are calling on correct Update phase
+            if (updatePhase != XRInteractionUpdateOrder.UpdatePhase.Dynamic) return;
+
+            bool hasCork = _corkSocket != null && _corkSocket.hasSelection;
+
+            if (!isSelected || hasCork)
+            {
+                _particleSystem.Stop();
+                return;
+            }
+
+            ProcessPourLogic();
+        }
+
+        private void ProcessPourLogic() 
+        {
+            float pourAngle = Vector3.Dot(transform.up, Vector3.down);
+            if (pourAngle > _pourThreshold)
+            {
+                // Linearly scale pour speed with pour angle
+                // Calculate percentage of pour range (0% is at _pourThreshold, 100% is max pour angle)
+                float pourRatio = (pourAngle - _pourThreshold) / (MAX_DOT_PRODUCT - _pourThreshold);
+                // Get pour speed based on ratio (0% is at _minPourSpeed, 100% is at _maxPourSpeed)
+                float pourSpeed = (_maxPourSpeed - _minPourSpeed) * pourRatio + _minPourSpeed;
+
+                emission.rateOverTime = pourSpeed;
+
+                if (!_particleSystem.isPlaying) _particleSystem.Play();
+            } else
+            {
+                if (_particleSystem.isPlaying) _particleSystem.Stop();
+            }
+        }
     }
 }

@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1135506688282822078, guid: f6a4e04dbde6e334cb2ce57a19890ad0, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: 3e6b76f93c9a4e64493e23b55223e9d9, type: 2}
     - target: {fileID: 2039227300600512358, guid: f6a4e04dbde6e334cb2ce57a19890ad0, type: 3}
       propertyPath: m_Name
       value: StarlightDropCork
