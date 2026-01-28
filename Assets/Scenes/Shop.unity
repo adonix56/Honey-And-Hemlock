@@ -1833,7 +1833,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 656922485215028871, guid: 040e87d224ce21941a565d019f0a639e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.971
+      value: 1.428
       objectReference: {fileID: 0}
     - target: {fileID: 656922485215028871, guid: 040e87d224ce21941a565d019f0a639e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1870,6 +1870,14 @@ PrefabInstance:
     - target: {fileID: 4981605077350947775, guid: 040e87d224ce21941a565d019f0a639e, type: 3}
       propertyPath: m_Name
       value: StarlightDropCork
+      objectReference: {fileID: 0}
+    - target: {fileID: 5580510162981679189, guid: 040e87d224ce21941a565d019f0a639e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2269
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245609025744331111, guid: 040e87d224ce21941a565d019f0a639e, type: 3}
+      propertyPath: _baseGrowthRate
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2373,7 +2381,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1679055191447989710, guid: 9311aa0fbe1645a40a4ca9b7ccfe00a1, type: 3}
       propertyPath: m_Name
-      value: Hemlock
+      value: HemlockBottle
       objectReference: {fileID: 0}
     - target: {fileID: 4282888572980571856, guid: 9311aa0fbe1645a40a4ca9b7ccfe00a1, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
@@ -2493,6 +2501,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1379056442293622784, guid: 62d6da32799fc0244ab1efce56b4b3f1, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 136
+      objectReference: {fileID: 0}
     - target: {fileID: 2459529620638397966, guid: 62d6da32799fc0244ab1efce56b4b3f1, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.3268
@@ -2503,7 +2515,11 @@ PrefabInstance:
       objectReference: {fileID: 1168371216}
     - target: {fileID: 6672226091500014439, guid: 62d6da32799fc0244ab1efce56b4b3f1, type: 3}
       propertyPath: m_Name
-      value: StarlightDrop
+      value: StarlightDropBottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7727223371231440859, guid: 62d6da32799fc0244ab1efce56b4b3f1, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8555951769274960112, guid: 62d6da32799fc0244ab1efce56b4b3f1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2962,7 +2978,7 @@ PrefabInstance:
       objectReference: {fileID: 942100769}
     - target: {fileID: 3788642559626858085, guid: 8a221f0f3e4a07e44a0fa1e7ee89c3db, type: 3}
       propertyPath: m_Name
-      value: Honey
+      value: HoneyBottle
       objectReference: {fileID: 0}
     - target: {fileID: 8037117441125408750, guid: 8a221f0f3e4a07e44a0fa1e7ee89c3db, type: 3}
       propertyPath: m_LocalPosition.x

@@ -33,7 +33,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1449887970061554828}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &5545882572304881062
@@ -272,3 +273,108 @@ MonoBehaviour:
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
   _data: {fileID: 0}
+  _pressureCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.02
+      value: 0
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 5
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.055288978
+    - serializedVersion: 3
+      time: 0.38367787
+      value: 0.2530317
+      inSlope: 1.374698
+      outSlope: 1.374698
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.40111336
+      value: 0.3585665
+      inSlope: 1.3792851
+      outSlope: 1.3792851
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.5
+      value: 0.43338868
+      inSlope: 1.6261308
+      outSlope: 1.3700702
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.04151605
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.55
+      value: 1
+      inSlope: 2.396447
+      outSlope: 0
+      tangentMode: 65
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  _fallingDropPrefab: {fileID: 0}
+  _fallingDropAttachTransform: {fileID: 1449887970061554828}
+  _gentleThreshold: 0.02
+  _steadyThreshold: 0.4
+  _rapidThreshold: 0.6
+--- !u!1 &8925051408855799637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1449887970061554828}
+  m_Layer: 3
+  m_Name: DropAttach
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1449887970061554828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925051408855799637}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5797019499948278366}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

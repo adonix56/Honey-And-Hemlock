@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: _data
       value: 
       objectReference: {fileID: 11400000, guid: 3e6b76f93c9a4e64493e23b55223e9d9, type: 2}
+    - target: {fileID: 1135506688282822078, guid: f6a4e04dbde6e334cb2ce57a19890ad0, type: 3}
+      propertyPath: _fallingDropPrefab
+      value: 
+      objectReference: {fileID: 5097318780986042556, guid: 38aa45f5c8b47ed4aaaa121442d8edb5, type: 3}
     - target: {fileID: 2039227300600512358, guid: f6a4e04dbde6e334cb2ce57a19890ad0, type: 3}
       propertyPath: m_Name
       value: StarlightDropCork

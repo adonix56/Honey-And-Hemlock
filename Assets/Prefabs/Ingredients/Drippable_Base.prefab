@@ -116,7 +116,7 @@ GameObject:
   - component: {fileID: 9000853399171143683}
   - component: {fileID: 4504943709591599589}
   - component: {fileID: 1657138500638881648}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Drippable_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
