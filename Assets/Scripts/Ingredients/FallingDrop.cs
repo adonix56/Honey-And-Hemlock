@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace HoneyAndHemlock.Ingredients
 {
-    public class FallingDrop : MonoBehaviour, IIngredientSource
+    public class FallingDrop : MonoBehaviour, IAddableToCauldron
     {
         public event Action OnDrop;
 
@@ -20,12 +20,13 @@ namespace HoneyAndHemlock.Ingredients
         private FallingDropState _state;
         private bool _canDrop;
         private bool _decay;
+        private bool _used;
         private float _scaleValue;
         private IngredientSO _data;
 
-        public IngredientType IngredientType => _data != null ? _data.Type : default;
-        public IngredientSO Data => _data;
-        public IngredientDeliveryMethod DeliveryMethod => IngredientDeliveryMethod.Drip;
+        public IngredientSO IngredientData => _data;
+
+        public bool CanUseIngredient => !_used;
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -47,6 +48,7 @@ namespace HoneyAndHemlock.Ingredients
             transform.localScale = Vector3.zero;
             _rigidbody.isKinematic = true;
             _data = ingredient;
+            _used = false;
         }
 
         public void SetCanDrop(bool canDrop)
@@ -79,7 +81,9 @@ namespace HoneyAndHemlock.Ingredients
         {
             if (_decay)
             {
-                _scaleValue -= Mathf.Lerp(0, _scaleValue, _decaySpeed * Time.deltaTime);
+                _scaleValue -= _scaleValue * _decaySpeed * Time.deltaTime;
+                _scaleValue = Mathf.Max(0, _scaleValue);
+                transform.localScale = Vector3.one * _scaleValue;
             }
         }
 
@@ -92,6 +96,11 @@ namespace HoneyAndHemlock.Ingredients
                 _rigidbody.isKinematic = false;
                 OnDrop?.Invoke();
             }
+        }
+
+        public void UsedIngredient()
+        {
+            _used = true;
         }
     }
 }

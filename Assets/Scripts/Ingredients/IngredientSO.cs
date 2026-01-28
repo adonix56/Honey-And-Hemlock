@@ -9,8 +9,12 @@ namespace HoneyAndHemlock.Ingredients
         [Header("Identity")]
         [SerializeField] private IngredientType _type;
         [SerializeField] private string _displayName;
+        [SerializeField] private IngredientCategory _category;
+        [SerializeField] private IngredientDeliveryMethod _deliveryMethod;
 
         public IngredientType Type => _type;
         public string DisplayName => _displayName;
+        public IngredientCategory Category => _category;
+        public IngredientDeliveryMethod DeliveryMethod => _deliveryMethod;
     }
 }

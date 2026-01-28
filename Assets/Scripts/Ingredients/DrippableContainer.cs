@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace HoneyAndHemlock.Ingredients
 {
-    public class DrippableIngredient : XRGrabInteractable, IIngredientSource
+    public class DrippableContainer : XRGrabInteractable
     {
         [Header("Ingredient Configuration")]
         [SerializeField] private IngredientSO _data;
@@ -13,19 +13,14 @@ namespace HoneyAndHemlock.Ingredients
         [SerializeField] private GameObject _fallingDropPrefab;
         [SerializeField] private Transform _fallingDropAttachTransform;
         [SerializeField] private float _baseGrowthRate;
-        [SerializeField] private float _gentleThreshold;
-        [SerializeField] private float _steadyThreshold;
-        [SerializeField] private float _rapidThreshold;
-
-        public IngredientType IngredientType => _data != null ? _data.Type : default;
-        public IngredientSO Data => _data;
-        public IngredientDeliveryMethod DeliveryMethod => IngredientDeliveryMethod.Drop;
+        [SerializeField] private float _holdThreshold;
 
         private IXRSelectInteractor _currentInteractor;
         private FallingDrop _currentFallingDrop;
 
-        private void Start()
+        protected override void Awake()
         {
+            base.Awake();
             CreateDrop();
         }
 
@@ -54,12 +49,15 @@ namespace HoneyAndHemlock.Ingredients
 
         private void ProcessDripLogic()
         {
+            if (_currentInteractor == null) return;
+            if (_currentFallingDrop == null) return;
+
             float squeezeIntensity = 0f;
 
             if (_currentInteractor is XRBaseInputInteractor inputInteractor)
             {
                 squeezeIntensity = inputInteractor.activateInput.ReadValue();
-                _currentFallingDrop.SetCanDrop(squeezeIntensity >= _steadyThreshold);
+                _currentFallingDrop.SetCanDrop(squeezeIntensity >= _holdThreshold);
             }
 
             float beadGrowthRate = _pressureCurve.Evaluate(squeezeIntensity) * _baseGrowthRate * Time.deltaTime;
@@ -69,7 +67,26 @@ namespace HoneyAndHemlock.Ingredients
 
         private void CreateDrop()
         {
-            _currentFallingDrop = Instantiate(_fallingDropPrefab, _fallingDropAttachTransform.position, Quaternion.identity, transform).GetComponent<FallingDrop>();
+            if (_fallingDropPrefab == null || _fallingDropAttachTransform == null)
+            {
+                Debug.LogError("DrippableIngredient missing prefab or attach transform!", this);
+                return;
+            }
+
+            GameObject newDrop = Instantiate(
+                _fallingDropPrefab, 
+                _fallingDropAttachTransform.position, 
+                Quaternion.identity, 
+                _fallingDropAttachTransform);
+
+            _currentFallingDrop = newDrop.GetComponent<FallingDrop>();
+
+            if (_currentFallingDrop == null)
+            {
+                Debug.LogError("FallingDropPrefab missing FallingDrop component!", this);
+                Destroy(newDrop);
+                return;
+            }
             _currentFallingDrop.Initialize(_data);
             _currentFallingDrop.OnDrop += OnDrop;
         }

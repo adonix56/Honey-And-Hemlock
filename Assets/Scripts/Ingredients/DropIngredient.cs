@@ -3,13 +3,22 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace HoneyAndHemlock.Ingredients 
 {
-    public class DropIngredient : XRGrabInteractable, IIngredientSource
+    public class DropIngredient : MonoBehaviour, IAddableToCauldron
     {
         [Header("Ingredient Configuration")]
         [SerializeField] private IngredientSO _data;
+        [SerializeField] private XRGrabInteractable _grabInteractable;
 
-        public IngredientType IngredientType => _data != null ? _data.Type : default;
-        public IngredientSO Data => _data;
-        public IngredientDeliveryMethod DeliveryMethod => IngredientDeliveryMethod.Drop;
+        private bool _used = false;
+
+        public IngredientSO IngredientData => _data;
+
+        public bool CanUseIngredient => !_used;
+
+        public void UsedIngredient()
+        {
+            _used = true;
+            if (_grabInteractable != null) _grabInteractable.enabled = false;
+        }
     }
 }

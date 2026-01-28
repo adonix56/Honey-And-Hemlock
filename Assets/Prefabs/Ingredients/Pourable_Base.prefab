@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2777553935751528683}
   - component: {fileID: 8171078599631444502}
   - component: {fileID: 5364695010355698189}
+  - component: {fileID: 1769739686247211086}
   m_Layer: 6
   m_Name: Particle System
   m_TagString: Untagged
@@ -3792,7 +3793,7 @@ ParticleSystem:
     radiusScale: 1
     collidesWith:
       serializedVersion: 2
-      m_Bits: 55
+      m_Bits: 257
     maxCollisionShapes: 256
     quality: 0
     voxelSize: 0.5
@@ -4836,6 +4837,18 @@ ParticleSystemRenderer:
   m_MeshWeighting1: 1
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
+--- !u!114 &1769739686247211086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 579761303389052669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ad1b9461240fa4ba1efbd1b37b5fb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.ParticleIngredients
 --- !u!1 &3744518906324712187
 GameObject:
   m_ObjectHideFlags: 0
@@ -5164,7 +5177,7 @@ MonoBehaviour:
   m_SnapToColliderVolume: 1
   m_ReinitializeDynamicAttachEverySingleGrab: 1
   m_AttachEaseInTime: 0.15
-  m_MovementType: 2
+  m_MovementType: 0
   m_PredictedVisualsTransform: {fileID: 0}
   m_VelocityDamping: 1
   m_VelocityScale: 1
@@ -5212,7 +5225,7 @@ MonoBehaviour:
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
   _data: {fileID: 0}
-  _socketInteractor: {fileID: 1352902752052427107}
+  _corkSocket: {fileID: 1352902752052427107}
   _particleSystem: {fileID: 8171078599631444502}
   _pourThreshold: 0.3
   _minPourSpeed: 5

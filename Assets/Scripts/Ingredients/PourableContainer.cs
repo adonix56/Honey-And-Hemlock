@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace HoneyAndHemlock.Ingredients
 {
-    public class PourableContainer : XRGrabInteractable, IIngredientSource
+    public class PourableContainer : XRGrabInteractable
     {
         private const float MAX_DOT_PRODUCT = 1f;
 
@@ -23,11 +23,7 @@ namespace HoneyAndHemlock.Ingredients
         [SerializeField, Range(0f, 50f)]
         private float _maxPourSpeed;
 
-        public IngredientType IngredientType => _data != null ? _data.Type : default;
-        public IngredientSO Data => _data;
-        public IngredientDeliveryMethod DeliveryMethod => IngredientDeliveryMethod.Pour;
-
-        ParticleSystem.EmissionModule emission;
+        private ParticleSystem.EmissionModule _emission;
 
 #if UNITY_EDITOR
         private void OnValidate()
@@ -37,9 +33,12 @@ namespace HoneyAndHemlock.Ingredients
         }
 #endif
 
-        private void Start()
+        protected override void Awake()
         {
-            emission = _particleSystem.emission;
+            base.Awake();
+            _emission = _particleSystem.emission;
+            ParticleIngredient _particleIngredient = _particleSystem.GetComponent<ParticleIngredient>();
+            _particleIngredient.SetIngredientSO(_data);
         }
 
         public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -71,7 +70,7 @@ namespace HoneyAndHemlock.Ingredients
                 // Get pour speed based on ratio (0% is at _minPourSpeed, 100% is at _maxPourSpeed)
                 float pourSpeed = (_maxPourSpeed - _minPourSpeed) * pourRatio + _minPourSpeed;
 
-                emission.rateOverTime = pourSpeed;
+                _emission.rateOverTime = pourSpeed;
 
                 if (!_particleSystem.isPlaying) _particleSystem.Play();
             } else
