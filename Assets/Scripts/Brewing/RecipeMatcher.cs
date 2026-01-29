@@ -27,7 +27,7 @@ namespace HoneyAndHemlock.Brewing
         public void FilterRecipes(Dictionary<IngredientSO, int> currentIngredients)
         {
             if (_possibleRecipes.Count == 0) return;
-            if (currentIngredients == null || currentIngredients.Count == 1) return;
+            if (currentIngredients == null || currentIngredients.Count == 0) return;
 
             // Iterating backwards protects from index shifting issues when removing from a list during iteration
             for (int i = _possibleRecipes.Count - 1; i >= 0; i--) { 

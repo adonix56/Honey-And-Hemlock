@@ -9,7 +9,7 @@ namespace HoneyAndHemlock.Brewing
         private Material _material;
         private Color _baseColor;
 
-        private void Start()
+        private void Awake()
         {
             _renderer ??= GetComponent<Renderer>();
             _material = _renderer.material;
@@ -17,12 +17,17 @@ namespace HoneyAndHemlock.Brewing
             _material.SetColor("_DarkFoamColor", _baseColor * 0.8f);
         }
 
-        public void SetLiquid()
+        private void OnDestroy()
+        {
+            Destroy(_material);
+        }
+
+        public void ShowLiquid()
         {
             _renderer.enabled = true;
         }
 
-        public void SetLiquidColor(Color color, float t = 0)
+        public void SetLiquidColor(Color color, float t)
         {
             Color colorLerp = Color.Lerp(_baseColor, color, t);
             _material.SetColor("_WaterColor", colorLerp);
@@ -31,7 +36,8 @@ namespace HoneyAndHemlock.Brewing
 
         public void ResetLiquidColor()
         {
-            SetLiquidColor(_baseColor);
+            _material.SetColor("_WaterColor", _baseColor);
+            _material.SetColor("_DarkFoamColor", _baseColor * 0.8f);
         }
 
         public void HideLiquid()

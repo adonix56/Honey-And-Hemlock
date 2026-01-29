@@ -15,6 +15,7 @@ namespace HoneyAndHemlock.Brewing
         [SerializeField] private LiquidTop _liquidTop;
         [SerializeField] private int _spinsToBrew;
         [SerializeField] private float _stirProgressDecay;
+        [SerializeField] private IngredientSO _junkSO;
 
         private bool _isStirring => _stirTransform != null;
         private bool _isStirrable;
@@ -24,6 +25,7 @@ namespace HoneyAndHemlock.Brewing
         private float _prevAngle;
         private float _stirProgress;
         private RecipeSO _matchedRecipe;
+        private RecipeMatchAmount _filterRecipeResult;
 
         private void Awake()
         {
@@ -33,6 +35,7 @@ namespace HoneyAndHemlock.Brewing
             _dryIngredients = new List<GameObject>();
             _stirProgress = 0;
             _isStirrable = false;
+            _filterRecipeResult = RecipeMatchAmount.Multiple;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -41,9 +44,9 @@ namespace HoneyAndHemlock.Brewing
             {
                 if (ingredient.CanUseIngredient)
                 {
-                    if (!_isStirrable && ingredient.IngredientData.DeliveryMethod != IngredientDeliveryMethod.Pour)
+                    if (ingredient.IngredientData.DeliveryMethod != IngredientDeliveryMethod.Pour)
                     {
-                        _dryIngredients.Add(other.gameObject);
+                        DestroyOrStoreDryIngredient(other.gameObject);
                     }
                     AddIngredient(ingredient.IngredientData);
                     ingredient.UsedIngredient();
@@ -56,9 +59,19 @@ namespace HoneyAndHemlock.Brewing
                 }
             } else if (other.TryGetComponent<XRGrabInteractable>(out XRGrabInteractable nonIngredient))
             {
-                AddJunk(nonIngredient);
+                // Only add non ingredients if they are dropped in, not while holding them.
+                if (nonIngredient.isSelected) return;
+                DestroyOrStoreDryIngredient(other.gameObject);
+                AddJunk(nonIngredient); 
                 nonIngredient.enabled = false;
             }
+        }
+
+        private void DestroyOrStoreDryIngredient(GameObject newIngredient)
+        {
+            // If it's stirrable, destroy it, otherwise, add to list of dry ingredients
+            if (_isStirrable) newIngredient.AddComponent<ShrinkAndDestroy>();
+            else _dryIngredients.Add(newIngredient);
         }
 
         private void OnTriggerExit(Collider other)
@@ -92,8 +105,7 @@ namespace HoneyAndHemlock.Brewing
             }
             _prevAngle = newAngle;
 
-            Color resultingColor = _matchedRecipe != null ? _matchedRecipe.Color : Color.purple;
-            _liquidTop.SetLiquidColor(resultingColor, Mathf.Clamp01(_stirProgress / (_spinsToBrew * 360f)));
+            UpdateLiquidColor();
 
             if (_stirProgress > _spinsToBrew * 360f)
             {
@@ -116,6 +128,13 @@ namespace HoneyAndHemlock.Brewing
         {
             _stirProgress -= Time.deltaTime * _stirProgressDecay;
             _stirProgress = Mathf.Max(_stirProgress, 0f);
+            UpdateLiquidColor();
+        }
+
+        private void UpdateLiquidColor()
+        {
+            Color resultingColor = _matchedRecipe != null ? _matchedRecipe.Color : Color.purple;
+            _liquidTop.SetLiquidColor(resultingColor, Mathf.Clamp01(_stirProgress / (_spinsToBrew * 360f)));
         }
 
         public void AddIngredient(IngredientSO ingredient)
@@ -129,7 +148,11 @@ namespace HoneyAndHemlock.Brewing
             {
                 _ingredients[ingredient] = 1;
                 _recipeMatcher.FilterRecipes(_ingredients);
-                _recipeMatcher.GetBestMatch(out _matchedRecipe);
+                _filterRecipeResult = _recipeMatcher.GetBestMatch(out RecipeSO matchedRecipe);
+                if (_filterRecipeResult == RecipeMatchAmount.One)
+                {
+                    _matchedRecipe = matchedRecipe.ContainsOnly(_ingredients.Keys) ? matchedRecipe : null;
+                }
                 if (ingredient.DeliveryMethod == IngredientDeliveryMethod.Pour)
                 {
                     SetStirrable();
@@ -145,11 +168,10 @@ namespace HoneyAndHemlock.Brewing
         private void SetStirrable()
         {
             _isStirrable = true;
-            _liquidTop.SetLiquid();
+            _liquidTop.ShowLiquid();
             for (int i = _dryIngredients.Count - 1; i >= 0; i--) 
             {
-                // TODO: Set Dissolve Animation, Low Priority
-                Destroy(_dryIngredients[i]);
+                _dryIngredients[i].AddComponent<ShrinkAndDestroy>();
             }
             _dryIngredients.Clear();
         }
@@ -157,6 +179,10 @@ namespace HoneyAndHemlock.Brewing
         private void AddJunk(XRGrabInteractable nonIngredient)
         {
             Debug.Log($"Adding NonIngredient {nonIngredient.name}");
+            if (!_ingredients.ContainsKey(_junkSO)) _ingredients[_junkSO] = 1;
+            _filterRecipeResult = RecipeMatchAmount.None;
+            _matchedRecipe = null;
+            ResetStirring();
         }
 
         public void PrintDictionary()
@@ -173,9 +199,8 @@ namespace HoneyAndHemlock.Brewing
         public void CompleteBrew()
         {
             _stirTransform = null;
-            RecipeMatchAmount result = _recipeMatcher.GetBestMatch(out RecipeSO matchedRecipe);
 
-            switch (result)
+            switch (_filterRecipeResult)
             {
                 case RecipeMatchAmount.None:
                     BadPotionBrewed();
@@ -184,31 +209,13 @@ namespace HoneyAndHemlock.Brewing
                     BadPotionBrewed();
                     break;
                 default: // Found a match!
-                    PotionBrewed(matchedRecipe);
                     break;
             }
+            StartCoroutine(WaitThenReset());
         }
 
         private void BadPotionBrewed() {
-            StartCoroutine(WaitThenReset());
-        }
-
-        private void PotionBrewed(RecipeSO matchedRecipe)
-        {
-            foreach (RecipeEntry recipeEntry in matchedRecipe.RequiredIngredients)
-            {
-                int ingredientQty = _ingredients[recipeEntry.ingredient];
-                switch (recipeEntry.ingredient.DeliveryMethod)
-                {
-                    case IngredientDeliveryMethod.Drop:
-                        break;
-                    case IngredientDeliveryMethod.Drip:
-                        break;
-                    default: // Pour
-                        break;
-                }
-            }
-            StartCoroutine(WaitThenReset());
+            _matchedRecipe = null;
         }
 
         private IEnumerator WaitThenReset()
@@ -219,12 +226,15 @@ namespace HoneyAndHemlock.Brewing
 
         private void ResetBrew()
         {
+            ResetStirring();
+            _isStirrable = false;
             _stirTransform = null;
             _dryIngredients.Clear();
             _ingredients.Clear();
             _recipeMatcher.SetupNewRecipe();
             _liquidTop.ResetLiquidColor();
             _liquidTop.HideLiquid();
+            _filterRecipeResult = RecipeMatchAmount.Multiple;
         }
     }
 }

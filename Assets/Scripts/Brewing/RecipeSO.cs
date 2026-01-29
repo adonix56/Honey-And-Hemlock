@@ -28,5 +28,19 @@ namespace HoneyAndHemlock.Brewing
         {
             return _reqIngredientsSet.Contains(ingredient);
         }
+
+        public bool ContainsOnly(IEnumerable<IngredientSO> ingredients)
+        {
+            //Simple Check
+            if (_reqIngredientsSet == null || ingredients == null) return false;
+            if (_reqIngredientsSet.Count != ingredients.Count()) return false;
+
+            //Check each matching ingredient
+            foreach (IngredientSO ingredient in ingredients)
+            {
+                if (!_reqIngredientsSet.Contains(ingredient)) return false;
+            }
+            return true;
+        }
     }
 }

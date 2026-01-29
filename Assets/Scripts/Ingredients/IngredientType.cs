@@ -16,5 +16,7 @@ namespace HoneyAndHemlock.Ingredients
 
         TearsOfDawn,
         StarlightDrop,
+
+        Junk,
     }
 }
