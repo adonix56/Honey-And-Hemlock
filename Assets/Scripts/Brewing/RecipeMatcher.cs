@@ -13,7 +13,6 @@ namespace HoneyAndHemlock.Brewing
     {
         [SerializeField] private List<RecipeSO> _allRecipes;
         [SerializeField] private List<RecipeSO> _possibleRecipes;
-        [SerializeField] private Cauldron _cauldron;
 
         private void Awake()
         {
@@ -27,7 +26,6 @@ namespace HoneyAndHemlock.Brewing
 
         public void FilterRecipes(Dictionary<IngredientSO, int> currentIngredients)
         {
-            _cauldron.PrintDictionary();
             // Iterating backwards protects from index shifting issues when removing from a list during iteration
             for (int i = _possibleRecipes.Count - 1; i >= 0; i--) { 
                 RecipeSO currentRecipe = _possibleRecipes[i];
@@ -35,7 +33,7 @@ namespace HoneyAndHemlock.Brewing
                 {
                     if (!currentRecipe.Contains(ingredient))
                     {
-                        _possibleRecipes.Remove(currentRecipe);
+                        _possibleRecipes.RemoveAt(i);
                         break;
                     }
                 }
