@@ -3,10 +3,10 @@ namespace HoneyAndHemlock.Ingredients
     public enum IngredientType
     {
         RedMushroom,
-        BlueCrystal,
-        Eyeball,
         OldBone,
-        Feather,
+        SkywingFeather,
+        BlueCrystal,
+        Seershard,
         VoidMushroom,
 
         Honey,

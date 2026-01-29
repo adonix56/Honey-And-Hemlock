@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Health Tonic
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Health Tonic
-  _color: {r: 0.5754717, g: 0.078720205, b: 0.078720205, a: 0}
+  _color: {r: 0.8490566, g: 0.3003738, b: 0.3003738, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 61a0f01e07a66f74799b134c0b39051a, type: 2}
     minAmount: 30

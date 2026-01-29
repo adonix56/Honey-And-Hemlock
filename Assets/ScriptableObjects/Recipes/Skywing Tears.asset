@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e024b4d3a92224980f262083287783, type: 3}
+  m_Name: Skywing Tears
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
+  _name: Skywing Tears
+  _color: {r: 1, g: 0.15690309, b: 0, a: 1}
+  _requiredIngredients:
+  - ingredient: {fileID: 11400000, guid: 4e4bdd9bb9b095c48a5c1a8146e1f38c, type: 2}
+    minAmount: 7
+    maxAmount: 7
+  - ingredient: {fileID: 11400000, guid: 074650153b2e0524986927e868080d61, type: 2}
+    minAmount: 7
+    maxAmount: 7
+  - ingredient: {fileID: 11400000, guid: 7736a221bfa37794292580bddae658cd, type: 2}
+    minAmount: 50
+    maxAmount: 60

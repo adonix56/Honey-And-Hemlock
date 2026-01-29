@@ -8,17 +8,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 893166871004877750, guid: b8e6f27c1aa0aea49959097edb8b25dd, type: 3}
-      propertyPath: m_ExcludeLayers.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 1767714524328856147, guid: b8e6f27c1aa0aea49959097edb8b25dd, type: 3}
       propertyPath: m_Name
       value: StarlightDrop
-      objectReference: {fileID: 0}
-    - target: {fileID: 1767714524328856147, guid: b8e6f27c1aa0aea49959097edb8b25dd, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1868993298038610657, guid: b8e6f27c1aa0aea49959097edb8b25dd, type: 3}
       propertyPath: m_LocalPosition.x

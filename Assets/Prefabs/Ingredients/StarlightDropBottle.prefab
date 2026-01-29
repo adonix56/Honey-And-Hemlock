@@ -50,7 +50,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3698179572528122724, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
       propertyPath: m_Name
-      value: StarlightDrop
+      value: StarlightDropBottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613756546009101837, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3268
       objectReference: {fileID: 0}
     - target: {fileID: 6968289018917817512, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
       propertyPath: m_Mesh

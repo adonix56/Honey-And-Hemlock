@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &7514688864789126155
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1834874010036652275, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698179572528122724, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_Name
+      value: TearsOfDawnBottle
+      objectReference: {fileID: 0}
+    - target: {fileID: 5613756546009101837, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.3328
+      objectReference: {fileID: 0}
+    - target: {fileID: 6683661907027175352, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
+    - target: {fileID: 6968289018917817512, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4835269519773549134, guid: e2d7baab25d64a84b84d9ae85d973d6a, type: 3}
+    - target: {fileID: 9000853399171143683, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4835269519773549134, guid: e2d7baab25d64a84b84d9ae85d973d6a, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}

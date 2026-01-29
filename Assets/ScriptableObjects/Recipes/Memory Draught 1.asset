@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e024b4d3a92224980f262083287783, type: 3}
+  m_Name: Memory Draught 1
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
+  _name: FORBIDDEN
+  _color: {r: 1, g: 1, b: 1, a: 1}
+  _requiredIngredients:
+  - ingredient: {fileID: 11400000, guid: a1740b6dc3900c246ae9e1b5e15145c2, type: 2}
+    minAmount: 1
+    maxAmount: 1
+  - ingredient: {fileID: 11400000, guid: 4121b0f2da3a78946a41a70122d4a359, type: 2}
+    minAmount: 6
+    maxAmount: 6
+  - ingredient: {fileID: 11400000, guid: 6170c7913ef7da240876dcabd2693725, type: 2}
+    minAmount: 5
+    maxAmount: 5
+  - ingredient: {fileID: 11400000, guid: 3e6b76f93c9a4e64493e23b55223e9d9, type: 2}
+    minAmount: 1
+    maxAmount: 1

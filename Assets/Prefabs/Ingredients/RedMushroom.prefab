@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 586348498192695161, guid: cdec86b6665b9b74ebc575e9c34ffb15, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -918303246576380365, guid: 6dbd75d0a41c8f24bac468118ffa5e07, type: 3}
     - target: {fileID: 2093682883683226675, guid: cdec86b6665b9b74ebc575e9c34ffb15, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -56,6 +60,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedMushroom
       objectReference: {fileID: 0}
+    - target: {fileID: 3692683795082719261, guid: cdec86b6665b9b74ebc575e9c34ffb15, type: 3}
+      propertyPath: _data
+      value: 
+      objectReference: {fileID: 11400000, guid: e46b585b51dbc4b43aa6c2822c1250a4, type: 2}
     - target: {fileID: 3746853728130588408, guid: cdec86b6665b9b74ebc575e9c34ffb15, type: 3}
       propertyPath: m_Mesh
       value: 
