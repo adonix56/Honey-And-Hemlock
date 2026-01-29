@@ -8,7 +8,9 @@ namespace HoneyAndHemlock.Brewing
 {
     public class Cauldron : MonoBehaviour
     {
-        Dictionary<IngredientSO, int> _ingredients;
+        [SerializeField] private RecipeMatcher _recipeMatcher;
+
+        private Dictionary<IngredientSO, int> _ingredients;
 
         private void Awake()
         {
@@ -40,6 +42,7 @@ namespace HoneyAndHemlock.Brewing
             } else
             {
                 _ingredients[ingredient] = 1;
+                _recipeMatcher.FilterRecipes(_ingredients);
             }
         }
 
