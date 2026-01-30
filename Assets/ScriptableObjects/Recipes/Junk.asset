@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37fa80ed813d9264287ef017033e61c1, type: 3}
+  m_Script: {fileID: 11500000, guid: b9e024b4d3a92224980f262083287783, type: 3}
   m_Name: Junk
-  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
-  _type: 12
-  _displayName: Junk
-  _category: 0
-  _deliveryMethod: 0
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
+  _name: Junk
+  _color: {r: 0.2924528, g: 0.056559265, b: 0.27825117, a: 0}
+  _requiredIngredients: []

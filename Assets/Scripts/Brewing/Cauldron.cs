@@ -15,10 +15,12 @@ namespace HoneyAndHemlock.Brewing
         [SerializeField] private LiquidTop _liquidTop;
         [SerializeField] private int _spinsToBrew;
         [SerializeField] private float _stirProgressDecay;
-        [SerializeField] private IngredientSO _junkSO;
+        [SerializeField] private IngredientSO _junkIngredientSO;
+        [SerializeField] private RecipeSO _junkRecipeSO;
 
         private bool _isStirring => _stirTransform != null;
         private bool _isStirrable;
+        private bool _potionComplete;
         private Dictionary<IngredientSO, int> _ingredients;
         private List<GameObject> _dryIngredients;
         private Transform _stirTransform;
@@ -35,6 +37,7 @@ namespace HoneyAndHemlock.Brewing
             _dryIngredients = new List<GameObject>();
             _stirProgress = 0;
             _isStirrable = false;
+            _potionComplete = false;
             _filterRecipeResult = RecipeMatchAmount.Multiple;
         }
 
@@ -59,11 +62,17 @@ namespace HoneyAndHemlock.Brewing
                 }
             } else if (other.TryGetComponent<XRGrabInteractable>(out XRGrabInteractable nonIngredient))
             {
-                // Only add non ingredients if they are dropped in, not while holding them.
-                if (nonIngredient.isSelected) return;
-                DestroyOrStoreDryIngredient(other.gameObject);
-                AddJunk(nonIngredient); 
-                nonIngredient.enabled = false;
+                if (_isStirrable && other.TryGetComponent<Potion>(out Potion emptyPotion))
+                {
+                    FillPotionAndResetCauldron(emptyPotion);
+                } else
+                {
+                    // Only add non ingredients if they are dropped in, not while holding them.
+                    if (nonIngredient.isSelected) return;
+                    DestroyOrStoreDryIngredient(other.gameObject);
+                    AddJunk(nonIngredient);
+                    nonIngredient.enabled = false;
+                }
             }
         }
 
@@ -126,6 +135,7 @@ namespace HoneyAndHemlock.Brewing
 
         private void DecayStir()
         {
+            if (_potionComplete) return;
             _stirProgress -= Time.deltaTime * _stirProgressDecay;
             _stirProgress = Mathf.Max(_stirProgress, 0f);
             UpdateLiquidColor();
@@ -141,6 +151,7 @@ namespace HoneyAndHemlock.Brewing
         {
             Debug.Log($"Adding {ingredient.DisplayName}");
             ResetStirring();
+            _potionComplete = false;
             if (_ingredients.ContainsKey(ingredient))
             {
                 _ingredients[ingredient]++;
@@ -179,7 +190,7 @@ namespace HoneyAndHemlock.Brewing
         private void AddJunk(XRGrabInteractable nonIngredient)
         {
             Debug.Log($"Adding NonIngredient {nonIngredient.name}");
-            if (!_ingredients.ContainsKey(_junkSO)) _ingredients[_junkSO] = 1;
+            if (!_ingredients.ContainsKey(_junkIngredientSO)) _ingredients[_junkIngredientSO] = 1;
             _filterRecipeResult = RecipeMatchAmount.None;
             _matchedRecipe = null;
             ResetStirring();
@@ -199,35 +210,24 @@ namespace HoneyAndHemlock.Brewing
         public void CompleteBrew()
         {
             _stirTransform = null;
-
-            switch (_filterRecipeResult)
-            {
-                case RecipeMatchAmount.None:
-                    BadPotionBrewed();
-                    break;
-                case RecipeMatchAmount.Multiple:
-                    BadPotionBrewed();
-                    break;
-                default: // Found a match!
-                    break;
-            }
-            StartCoroutine(WaitThenReset());
+            _potionComplete = true;
         }
 
-        private void BadPotionBrewed() {
-            _matchedRecipe = null;
-        }
-
-        private IEnumerator WaitThenReset()
+        private void FillPotionAndResetCauldron(Potion emptyPotion)
         {
-            yield return new WaitForSeconds(2f);
-            ResetBrew();
+            if (emptyPotion.CanFillPotion)
+            {
+                if (!_potionComplete || _matchedRecipe == null) _matchedRecipe = _junkRecipeSO;
+                emptyPotion.FillPotion(_matchedRecipe);
+                ResetBrew();
+            }
         }
 
         private void ResetBrew()
         {
             ResetStirring();
             _isStirrable = false;
+            _potionComplete = false;
             _stirTransform = null;
             _dryIngredients.Clear();
             _ingredients.Clear();
