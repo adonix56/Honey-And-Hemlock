@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Truth Serum
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: 272dbb0c4211275439f904283a113532, type: 2}
+  _request:
+  - A traveling merchant sold my wife a Tidebreaker Mare he swore was a purebred,
+    but the mare's got patches and a limp. I need to sit him down and get him to
+    admit to pulling a fast one!
+  - Someone in the village has been stealing from the offering shrine at night. I
+    know it's one of the three families on Dreamweft Hill but none of them will say
+    a word. I need one of them to talk.
+  _playerResponse:
+  - Let's expose the lie
+  - Someone's hiding something
+  _successfulResponse:
+  - He confessed. Right there in the square, in front of the whole village. Spilled
+    everything. Turns out he's been running this scam across three towns. Well done,
+    potion maker. Well done.
+  - "It was the mage\u2019s husband. He cracked the moment I offered him a sip. Told
+    me everything, even things I didn't ask about. That potion is terrifyingly effective."
+  _failedResponse:
+  - It did the opposite. Now everyone around him is spilling their secrets instead.
+    The butcher just told me about something he did twelve years ago that I really
+    didn't need to know.
+  - "It worked on everyone EXCEPT the thieves. Now the weaver admitted she\u2019s
+    been using fae thread without a license. Everyone\u2019s talking except for anyone
+    from the three families!"
+  _cosmicResponse:
+  - "Something ancient saw right through me. All of me. That was terrifying\u2026
+    I\u2019ll feel better when I get that merchant to talk."
+  - Something saw through me completely. All my secrets. Someone's still stealing
+    from the shrine though. I need help finding answers.

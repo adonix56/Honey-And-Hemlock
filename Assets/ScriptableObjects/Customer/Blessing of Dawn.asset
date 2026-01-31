@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Blessing of Dawn
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: b5aa1c65083f4da43a4db014123fba7e, type: 2}
+  _request:
+  - My garden has been dying for months. Nothing grows. The soil feels wrong. Even
+    the weeds won't take root. The old wives say something cursed the land. I just
+    need something to bring life back to it.
+  - The old willow by the Arcane Library has been withering since the frost took
+    hold last winter. It's been there longer than anyone can remember. If it dies,
+    something bad is coming. I need to save it.
+  _playerResponse:
+  - Life can be restored
+  - Let's bring it back
+  _successfulResponse:
+  - I poured it into the soil this morning and by midday the first green shoot broke
+    through. By evening there were three. Three! After months of nothing, I think
+    you just saved my livelihood.
+  - New leaves. On a dead tree. The elders are calling it a miracle. I'm calling
+    it the best coin I ever spent. Thank you.
+  _failedResponse:
+  - Something grew alright. But it's not anything I've ever seen before. Black roots,
+    silver leaves, and it's growing fast. Very fast. I don't think this is what we
+    wanted.
+  - The willow woke up. That's the only way I can describe it. The branches moved
+    on their own. Toward me. I left very quickly after that.
+  _cosmicResponse:
+  - "Something was growing toward me in the dark. Something that\u2019s been growing
+    forever\u2026 can it help my garden grow?"
+  - That thing has probably been there longer than the willow. Longer than anything.
+    But that willow needs me now. You said you had something in mind?

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Memory Draught
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: 6308f8108fc2d5140ab55dc4cc259a58, type: 2}
+  _request:
+  - My mother used to make a recipe. A special stew for the deep of winter. She passed
+    last season and I can't recall it. Not even a single ingredient. It's like someone
+    scooped it right out of my head.
+  - I witnessed a dreadful caravan attack on the road three weeks back. I need to
+    remember every detail so the garrison can hunt the bandits down. But every time
+    I try to think back, it all goes foggy.
+  _playerResponse:
+  - I can bring it back
+  - I can help you remember
+  _successfulResponse:
+  - I remember. All of it. The way she'd toast the barley first, the pinch of winterbloom,
+    the way the kitchen smelled. It's like she's standing right next to me again.
+    Thank you.
+  - Every face. Every detail. The color of their cloaks, the banner they carried,
+    the direction they fled. I have everything the garrison needs. You've helped
+    me get justice.
+  _failedResponse:
+  - It's not coming back. Though, now I'm remembering things that aren't mine. A
+    childhood that isn't my own. A face I've never seen before. Whose memories are
+    these?
+  - I remember more now, but it's all wrong. The details have changed. The faces
+    are different. I don't know which memories are real anymore and which ones you
+    put there.
+  _cosmicResponse:
+  - "Something ancient saw me. It remembered me. It seems like over lifetimes\u2026
+    but I still can\u2019t remember the recipe. Can you still help me?"
+  - "I saw everything for such a short time. I don\u2019t think I can ever forget
+    that\u2026 but I don\u2019t want to forget about those bandits. I still need
+    to remember their faces."

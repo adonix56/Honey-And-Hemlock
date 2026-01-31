@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Antidote
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: a391c56809518454380bba430961210e, type: 2}
+  _request:
+  - "A Puffcoil Serpent got me in the forearm two days back while I was clearing
+    brush near the Adventurer\u2019s Guild. The bite's gone black and there's a green
+    vein spreading up toward my elbow."
+  - I was foraging near the Whispering Marsh and something in the water latched onto
+    my ankle. Left a mark like a ring of thorns. Since then the skin's gone grey
+    and it aches deep in the bone.
+  _playerResponse:
+  - Let's stop the spread
+  - Poison requires a cure
+  _successfulResponse:
+  - The vein's already fading. The color's coming back. I've seen Puffcoil kills
+    before. You just saved my life and you did it like it was nothing.
+  - The pain stopped the moment I finished it. The grey is clearing out like fog
+    burning off at dawn. I owe you my life, potion maker.
+  _failedResponse:
+  - It's spreading faster now. The green is up past my elbow and it's starting to
+    glow. That's new. That wasn't doing that before.
+  - The ache got worse and now the mark is talking to me. I can feel it vibrating
+    against my bone. What did you put in this thing? I guess I have a new friend.
+  _cosmicResponse:
+  - "Something almost grabbed me from very far away\u2026 or very close. I couldn\u2019t
+    tell. Uhh.. This venom is still spreading though, can you fix it?"
+  - I saw something that makes the marsh look like a puddle. Too bad this bite still
+    hurts, you can still help right?

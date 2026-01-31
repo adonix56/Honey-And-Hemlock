@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Night Vision
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: 7669af67348246f449881bbe75ccef0a, type: 2}
+  _request:
+  - I patrol the eastern wall every night and the lanterns have been guttering out
+    all week. Something's wrong with the wax or something. Last night, I couldn't
+    see my own hand in front of my face.
+  - My eldest son went missing in the Darkwood three nights ago. Search parties can't
+    go in after sundown. The trees swallow all the light. I need to find him myself,
+    and I need to see when no one else can.
+  _playerResponse:
+  - Can't work in darkness
+  - Let's fix those eyes
+  _successfulResponse:
+  - I can see everything. The cracks in the wall, a rabbit in the field, the tree
+    line a hundred yards out. It's like someone lit the whole world on fire. I won't
+    be falling off the wall tonight.
+  - I can see the footprints. Even in the dark, the trail is as clear as midday!
+    I'm going to find my boy. Thank you. Thank you for giving me a chance.
+  _failedResponse:
+  - Everything's blurry and there's a strange shimmer at the edges. And are those...
+    are those colors I've never seen before? My eyes are doing something very odd.
+  - It's worse. Now I see things in the dark that aren't there. Shapes. Moving shapes.
+    I don't think this is helping me find my boy any faster.
+  _cosmicResponse:
+  - "I saw something in the dark that I wish I hadn\u2019t. Something enormous. I
+    wish I could see that clearly in the dark when patrolling."
+  - Oh the horror, the cosmic horror!! Oh, sorry. Right, my boy is still out there.
+    I still need to see in the dark.

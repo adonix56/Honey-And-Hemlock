@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Skywing Tears
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: 3d76ef143bcc876418cdc48fecfedccb, type: 2}
+  _request:
+  - "My daughter wants to see the sunrise from the top of Greymist Peak. She's turning
+    18. I promised her I'd take her up there, but I haven\u2019t been right since
+    I took an arrow to the knee. I can't make that climb."
+  - I need to deliver a message to the lighthouse on Tinkerglow Cliffs before the
+    storm rolls in. The path takes half a day on foot and the storm's coming in two
+    hours. I need to cover the distance faster.
+  _playerResponse:
+  - Let's get you moving
+  - You need swift travel
+  _successfulResponse:
+  - "We flew all the way to the top without stopping. The sunrise was\u2026 breathtaking.
+    We watched it together. First time I've seen it from up there. Worth every coin
+    I paid you."
+  - I made it in less than an hour. It felt like I was flying the whole way. The
+    message is delivered and the Tinkerglow Lighthouse is lit. The ships will see
+    the warning in time.
+  _failedResponse:
+  - I made it halfway up before my legs gave out. And on the way down I started hiccupping
+    uncontrollably. I've been hiccupping for an hour now. *hic* What was in that?
+  - I got three steps down the path and now I'm stuck to the ground. Completely stuck.
+    My boots won't lift. It's like the earth is holding me here. What did you give
+    me?
+  _cosmicResponse:
+  - "I flew somewhere I shouldn\u2019t have. Something almost got me. I know I need
+    to take my girl to Greymist Peak, but that was a little TOO high for me."
+  - "I was weightless in the void and something patient was waiting for me. Too bad
+    I couldn\u2019t just fly to the Tinkerglow Cliffs on the way back."

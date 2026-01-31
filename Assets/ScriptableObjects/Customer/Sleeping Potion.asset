@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Sleeping Potion
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: 6c386461d05610c43994937b0937637f, type: 2}
+  _request:
+  - A family of pixies has moved into the rafters above my bed. They sing at all
+    hours. Lovely singing, truly, but I haven't had a night's rest in a fortnight
+    and I'm starting to see things.
+  - My son just learned how to play the lute and he practices in the room next to
+    mine. For hours. The same three notes over and over. I love him dearly but I
+    need to sleep!
+  _playerResponse:
+  - Something for the noise
+  - Let's drown that out
+  _successfulResponse:
+  - I slept from dusk to dawn. Not a single pixie woke me. First time in weeks I
+    feel like a person again. You're a blessing, potion maker.
+  - I slept through the entire practice session. Didn't hear a single note. I feel
+    like a new person. He can practice all he wants now.
+  _failedResponse:
+  - I'm more awake than ever. And now the pixies are juggling. They weren't juggling
+    before. Are they juggling Whistle-Whoppers or am I seeing things?
+  - I can hear BETTER now. Every note is crystal clear. I can hear him breathing
+    between plucks. What did you give me? This is the opposite of what I needed!
+  _cosmicResponse:
+  - "I don\u2019t think I\u2019ll ever sleep again after that\u2026 which is exactly
+    why I need this potion even more now."
+  - Floating in nothing, ancient things reaching down, the whole nightmare. Still
+    not worse than the lute. I still need to sleep through the lute.

@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Strength Brew
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: f8a5fa67224133e4093a965b681bcd0a, type: 2}
+  _request:
+  - A rockslide came down from the ridge and blocked the only path into Fernhollow
+    Village. The stone is massive. No amount of horses or ropes is going to move
+    it. I need something in my veins.
+  - "The foundation stone for the Dragon\u2019s Keep needs moving. It took four knights
+    and three mages to get it to the site and five of them left town. I shouldn\u2019t
+    have skipped arm day last month."
+  _playerResponse:
+  - That's a heavy task
+  - You'll need more muscle
+  _successfulResponse:
+  - By the gods I feel like I could lift the whole ridge, not just the stone. I'll
+    have that path clear before the sun goes down. Thank you.
+  - "I moved it by myself. By MYSELF. Set it in place without breaking a sweat. You've
+    saved the Dragon\u2019s Keep. Thank you."
+  _failedResponse:
+  - I don't feel any different. Nothing. Weaker, maybe? My arms feel like they're
+    stuffed with wet clay. What was in that?
+  - I lifted it an inch and then dropped it on my foot. And now my arms feel like
+    wet rope. This is the opposite of strength!
+  _cosmicResponse:
+  - "That thing was bigger than the boulder. Bigger than the village. Bigger than\u2026
+    bah.. Well, the path still needs clearing though. Can you help?"
+  - Something was pulling me upward. Or downward. I couldn't tell. Something massive.
+    The stone still needs moving though. Can I ask that celestial being to join the
+    team?

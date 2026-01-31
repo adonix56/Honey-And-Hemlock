@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Health Tonic
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: c939c2d0f8530624ea7d9215110e41aa, type: 2}
+  _request:
+  - A Cloudsnout Boar caught me good across the shin while I was checking my traps.
+    Bled through two wraps of linen before I made it back. I've dealt with worse,
+    but it's throbbing something fierce.
+  - My youngest tumbled from the wagon yesterday chasing after a Carbuncle. Nothing
+    broken, bless her, but she's bruised up something awful. I need her on her feet
+    before the next frost hits.
+  _playerResponse:
+  - Sounds like you need mending
+  - Let's patch her up
+  _successfulResponse:
+  - The bleeding's already stopped. Thank the gods, I can barely feel the gash anymore.
+    You've got a gift, potion maker! A real gift!
+  - She's already running around the yard again! You'd never know anything happened.
+    Bless you for this, truly.
+  _failedResponse:
+  - That's... not quite right, is it? It stings worse now than before I came in.
+    And is that... is that growing feathers?
+  - "Well, the bruises are still there, and now she's humming a tune none of us have
+    ever heard. Where is that coming from? That\u2019s some strange brew you've got."
+  _cosmicResponse:
+  - I was somewhere. Nowhere. Something huge reached for me and then I was back...anyway,
+    does this fix the boar scratch or not?
+  - That was the strangest thing that's ever happened to me and I have three children.
+    Will this help my girl or not?

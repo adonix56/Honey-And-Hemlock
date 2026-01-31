@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Courage Potion
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: 27d047511a85b3148a89bf860e73f741, type: 2}
+  _request:
+  - A Collector from the Mage's Guild is coming tomorrow and I owe three months of
+    payment. I need to face him and negotiate but every time I think about it my
+    hands start shaking.
+  - "The village needs someone to cross the Ashveil Bridge to deliver word to the
+    garrison on the other side. Everyone who's tried has turned back. I know I\u2019m
+    up next but I\u2019m too scared to go!"
+  _playerResponse:
+  - Time to face them
+  - Let's find your nerve
+  _successfulResponse:
+  - I met him at the door. Looked him right in the eye and worked out a payment plan.
+    Didn't shake once. I feel like I could negotiate with a dragon now.
+  - "The bridge doesn't frighten me anymore. I walked halfway across it just now,
+    just to test it. I felt great! Maybe I\u2019ll host a party. How many people
+    can fit on the bridge?"
+  _failedResponse:
+  - I opened the door and immediately hid behind it. Then I crawled under my table.
+    I'm MORE afraid now. What was in that potion?
+  - I took three steps toward the bridge and my knees buckled. And now I'm scared
+    of things I wasn't scared of before. The door handle. The chair. What did you
+    give me?
+  _cosmicResponse:
+  - "The cosmic horror!! That was really scary! I think I have the courage to face
+    him now. Wait. No.. I don\u2019t."
+  - "That was a real haunting. The kind that almost takes you. I wonder if it can
+    take me across that bridge\u2026 No, that\u2019s too scary."

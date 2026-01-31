@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Clarity Elixer
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: fbbffaee7c878494a81d7c0ec7e19df4, type: 2}
+  _request:
+  - I've been trying to work out how much grain we'll need for the winter stores.
+    Every time I start counting I lose track halfway through. The numbers just slip
+    away like water.
+  - I'm supposed to arbitrate a dispute between two glowberry farmers over fence
+    boundaries but every time they start talking I get confused. The arguments all
+    blur together and I can't think.
+  _playerResponse:
+  - Let's sharpen that mind
+  - I can clear that fog
+  _successfulResponse:
+  - Sixty-two sacks. Plus eight for seed. The calculations are clear as glass now.
+    I can actually finish the ledger for once.
+  - I heard every word. Every detail. I saw the whole situation clearly and settled
+    it in ten minutes. Best decision I've made in years.
+  _failedResponse:
+  - The numbers are moving. Actually moving on the page. And now they're singing?
+    Are numbers supposed to sing? What did you put in that?
+  - Now I'm confused about MY OWN property lines. And I think the fence is moving.
+    Is the fence moving or am I dizzy? What's happening?
+  _cosmicResponse:
+  - Something huge almost held me in its hand. The grain stores. Right. I still need
+    to count the grain stores.
+  - "Everything made sense for one second. Then something ancient reached for me.
+    And it\u2019s all gone. I probably still need something to settle the fence dispute."

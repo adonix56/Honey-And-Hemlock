@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81b9501dec89da64eb81f4c230bdd187, type: 3}
+  m_Name: Calming Draught
+  m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Customers.CustomerSO
+  _requestedPotion: {fileID: 11400000, guid: 0c19d04a3548dc540a4a903aa574d52e, type: 2}
+  _request:
+  - "My neighbor's Chime\u2011Nose Pup keeps barking at nothing. Just sudden bursts
+    that make me worn thin from jumping out of my skin every time it happens. I need
+    something to help settle down."
+  - The Hero's Homecoming Feast is in two days and I'm in charge of organizing the
+    whole thing. Every time someone asks me a question my heart starts racing. I
+    need to steady myself before I snap at someone.
+  _playerResponse:
+  - Something to calm your nerves?
+  - I'll help you relax
+  _successfulResponse:
+  - It's like someone untied a knot in my chest. The cute pup is still barking but
+    I don't even care anymore. I might actually enjoy my evening. Thank you.
+  - I can breathe again. Someone just asked me about the centerpiece runes and I
+    answered without wanting to scream. This is wonderful.
+  _failedResponse:
+  - That made it worse. Now I'm anxious AND the dog sounds like it's barking words.
+    Is it... is it saying my name? What did you put in that?
+  - My heart's beating faster now. And I think I just agreed to organize next year's
+    Feast too. Why did I say that? I didn't mean to say that!
+  _cosmicResponse:
+  - Something enormous almost grabbed me in the dark....which is exactly why I need
+    something to calm my nerves even more now.
+  - I was in the void and something reached for everything everywhere all at once.
+    Oh shoot, the Feast! Right. I still need to stay calm for the festival.
