@@ -116,6 +116,7 @@ GameObject:
   - component: {fileID: 9000853399171143683}
   - component: {fileID: 4504943709591599589}
   - component: {fileID: 1657138500638881648}
+  - component: {fileID: 3914964196923875349}
   m_Layer: 6
   m_Name: Drippable_Base
   m_TagString: Untagged
@@ -374,3 +375,16 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &3914964196923875349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3698179572528122724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9c8e8d8cb2f94489848999c12636a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnableObject
+  _respawnPrefab: {fileID: 0}

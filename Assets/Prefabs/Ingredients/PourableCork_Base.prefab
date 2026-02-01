@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6602386436370039277}
   - component: {fileID: 5064562418524885616}
   - component: {fileID: 2741742179367791873}
+  - component: {fileID: -8911644173328440088}
   m_Layer: 3
   m_Name: PourableCork_Base
   m_TagString: Untagged
@@ -271,3 +272,16 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &-8911644173328440088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3230726944314415572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9c8e8d8cb2f94489848999c12636a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnableObject
+  _respawnPrefab: {fileID: 0}

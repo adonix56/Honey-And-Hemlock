@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 7500890320567214312}
   - component: {fileID: 4694889109587837341}
   - component: {fileID: 7548593222308332570}
+  - component: {fileID: 8510229291542428308}
   m_Layer: 6
   m_Name: Potion
   m_TagString: Untagged
@@ -502,3 +503,16 @@ MonoBehaviour:
   m_LimitAngularVelocity: 0
   m_MaxLinearVelocityDelta: 10
   m_MaxAngularVelocityDelta: 20
+--- !u!114 &8510229291542428308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8574137420074680476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9c8e8d8cb2f94489848999c12636a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnableObject
+  _respawnData: {fileID: 11400000, guid: cbc124fd5d7d4c348a9f30491fb0151c, type: 2}

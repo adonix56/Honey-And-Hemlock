@@ -27,6 +27,7 @@ namespace HoneyAndHemlock.Brewing
                 transform.localScale = Vector3.one * _currentScale;
             } else
             {
+                if (gameObject.TryGetComponent<RespawnableObject>(out RespawnableObject ro)) ro.RespawnMe();
                 Destroy(gameObject);
             }
         }

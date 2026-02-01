@@ -4965,6 +4965,7 @@ GameObject:
   - component: {fileID: 20152027545149106}
   - component: {fileID: 2641934247544828183}
   - component: {fileID: 7233745227215818309}
+  - component: {fileID: -3824205445952487584}
   m_Layer: 6
   m_Name: Pourable_Base
   m_TagString: Untagged
@@ -5230,3 +5231,16 @@ MonoBehaviour:
   _pourThreshold: 0.3
   _minPourSpeed: 5
   _maxPourSpeed: 30
+--- !u!114 &-3824205445952487584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531934425849920125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c9c8e8d8cb2f94489848999c12636a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RespawnableObject
+  _respawnPrefab: {fileID: 0}

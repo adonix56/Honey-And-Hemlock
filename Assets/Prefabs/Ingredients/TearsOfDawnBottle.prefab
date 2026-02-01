@@ -52,6 +52,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TearsOfDawnBottle
       objectReference: {fileID: 0}
+    - target: {fileID: 3914964196923875349, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: _respawnData
+      value: 
+      objectReference: {fileID: 11400000, guid: 0ad07822531f98e47854f386b35e380d, type: 2}
+    - target: {fileID: 3914964196923875349, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+      propertyPath: _respawnPrefab
+      value: 
+      objectReference: {fileID: 6564870633186121583}
     - target: {fileID: 5613756546009101837, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.3328
@@ -73,3 +81,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+--- !u!1 &6564870633186121583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3698179572528122724, guid: 5e5f9362216c69a4690d55122ff1b74e, type: 3}
+  m_PrefabInstance: {fileID: 7514688864789126155}
+  m_PrefabAsset: {fileID: 0}

@@ -75,7 +75,11 @@ namespace HoneyAndHemlock.Customers
 
         public void DestroyPotion()
         {
-            if ( _submittedPotion != null ) Destroy(_submittedPotion.gameObject);
+            if (_submittedPotion != null)
+            {
+                if (TryGetComponent<RespawnableObject>(out RespawnableObject ro)) ro.RespawnMe();
+                Destroy(_submittedPotion.gameObject);
+            }
         }
 
         // 14) CustomerCanvas -> () -> CustomerManager
