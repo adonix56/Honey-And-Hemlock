@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Memory Draught
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Memory Draught
+  _description: "Tier: Advanced\\n\\nEffect: Restores forgotten memories with vivid
+    clarity.\\n\\nRecipe: Moonwater + Blue Crystal + Seershard + Honey\\n\\nFlavor:
+    Cool and sweet, with a lingering echo of d\xE9j\xE0 vu."
   _color: {r: 0.1787558, g: 0.42847747, b: 0.9716981, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 93b6f43a88cbe724c8152bc1d67415ba, type: 2}

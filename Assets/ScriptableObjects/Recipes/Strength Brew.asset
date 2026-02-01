@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Strength Brew
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Strength Brew
+  _description: 'Tier: Standard\n\nEffect: Floods the body with raw physical power.\n\nRecipe:
+    Bloodroot Extract + Old Bone + Red Mushroom\n\nFlavor: Hot, metallic, and invigorating.'
   _color: {r: 0.8584906, g: 0.5117311, b: 0.17412782, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 4121b0f2da3a78946a41a70122d4a359, type: 2}

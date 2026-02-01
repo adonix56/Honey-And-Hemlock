@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 11
   _displayName: Starlight Drop
+  _description: 'Description: Glowing Drops in Metal Vial\n\nType: Droplets\n\nObtained:
+    Mages extracted during meteor showers over the Nightfall Expanse\n\nNotes: A
+    drop that refuses to sit still. It bends the air around it, as if remembering
+    the sky it fell from.'
   _category: 2
   _deliveryMethod: 2

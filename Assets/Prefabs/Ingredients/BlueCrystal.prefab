@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8284711197526121968, guid: cdec86b6665b9b74ebc575e9c34ffb15, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 8363920445652553689, guid: e48b726cdd344214096c31de28d37f9e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 0
   _displayName: Red Mushroom
+  _description: "Description: Red Cap, White Spots, Grey Stem\\n\\nType: Dry\\n\\nObtained:
+    Common Fields\\n\\nNotes: A humble little cap with a warming bite. Reliable,
+    predictable, and always willing to help mend what\u2019s torn."
+  _category: 0
+  _deliveryMethod: 0

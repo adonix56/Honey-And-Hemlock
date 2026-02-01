@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 8
   _displayName: Moonwater
+  _description: 'Description: Thin, Blue in Blue Round Bottle\n\nType: Liquid\n\nObtained:
+    Springs in the Silvergrove\n\nNotes: Cool and steadying. It carries the calm
+    of a clear night sky straight into the brew.'
   _category: 1
   _deliveryMethod: 1

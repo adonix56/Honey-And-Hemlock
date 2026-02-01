@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 10
   _displayName: Tears of Dawn
+  _description: 'Description: Golden Drops in Bulbous Bottle\n\nType: Droplets\n\nObtained:
+    Condensed from morning light atop the Dawnspire Peaks\n\nNotes: A single drop
+    carries the promise of a new day. Potent, rare, and always a little warm to the
+    touch.'
   _category: 1
   _deliveryMethod: 2

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Sleeping Potion
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Sleeping Potion
+  _description: 'Tier: Simple\n\nEffect: Induces deep, dreamless rest.\n\nRecipe:
+    Hemlock + Honey\n\nFlavor: Heavy, warm, and soothing. Like sleep in a bottle.'
   _color: {r: 0.7735849, g: 0.36138666, b: 0.12041653, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 2756da7389002b443af7ba879b60211f, type: 2}

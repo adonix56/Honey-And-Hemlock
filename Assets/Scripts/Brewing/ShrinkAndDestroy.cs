@@ -1,3 +1,4 @@
+using HoneyAndHemlock.Ingredients;
 using UnityEngine;
 
 namespace HoneyAndHemlock.Brewing
@@ -8,6 +9,21 @@ namespace HoneyAndHemlock.Brewing
         private float _shrinkDuration;
         private float _startScale;
         private float _currentScale;
+
+        private void Awake()
+        {
+            if (TryGetComponent<DropIngredient>(out DropIngredient drop))
+            {
+                Transform dropParent = drop.transform.parent;
+
+                if (dropParent != null && !dropParent.TryGetComponent<ShrinkAndDestroy>(out _))
+                {
+                    dropParent.gameObject.AddComponent<ShrinkAndDestroy>();
+                }
+                Destroy(this);
+                return;
+            }
+        }
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 5
   _displayName: Void Mushroom
+  _description: 'Description: Purple Cap, Ominous Glow\n\nType: Dry\n\nObtained:
+    Everspire (Extremely Rare)\n\nNotes: A fungus that only grows atop Everspire
+    on a solar eclipse. Its presence is a warning, and its use is never without consequence.'
   _category: 2
   _deliveryMethod: 0

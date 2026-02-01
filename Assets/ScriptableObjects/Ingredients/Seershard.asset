@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 4
   _displayName: Seershard
+  _description: 'Description: Black Obelisk\n\nType: Dry\n\nObtained: Seerbats atop
+    Mt. Greywrat\n\nNotes: This dark horn hums when truth is near. Handle with care.
+    It shows more than what most folk would want to see.'
   _category: 1
   _deliveryMethod: 0

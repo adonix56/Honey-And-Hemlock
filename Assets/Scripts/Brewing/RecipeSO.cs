@@ -10,12 +10,14 @@ namespace HoneyAndHemlock.Brewing
     {
         [Header("Identity")]
         [SerializeField] private string _name;
+        [SerializeField] private string _description;
         [SerializeField] private Color _color;
         [SerializeField] private List<RecipeEntry> _requiredIngredients;
 
         private HashSet<IngredientSO> _reqIngredientsSet;
 
-        public string Name => _name;
+        public string DisplayName => _name;
+        public string Description => _description;
         public Color Color => _color;
         public List<RecipeEntry> RequiredIngredients => _requiredIngredients;
 

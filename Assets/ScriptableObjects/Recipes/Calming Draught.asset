@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Calming Draught
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Calming Draught
+  _description: 'Tier: Simple\n\nEffect: Smooths frayed nerves and quiets anxious
+    thoughts.\n\nRecipe: Hemlock + Moonwater\n\nFlavor: Cool, herbal, and gently
+    numbing.'
   _color: {r: 0.58914894, g: 0.10346207, b: 0.8773585, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 2756da7389002b443af7ba879b60211f, type: 2}

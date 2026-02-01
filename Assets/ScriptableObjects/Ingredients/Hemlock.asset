@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 7
   _displayName: Hemlock
+  _description: 'Description: Thin, Green in Green Bottle\n\nType: Liquid\n\nObtained:
+    Marshy banks of the Stillwater Fen\n\nNotes: Bitter and cooling. A single drop
+    quiets the nerves; too much quiets everything.'
   _category: 0
   _deliveryMethod: 1

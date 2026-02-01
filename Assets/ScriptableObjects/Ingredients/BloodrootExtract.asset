@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 9
   _displayName: Bloodroot Extract
+  _description: 'Description: Thick, Red in Red Skinny Bottle\n\nType: Liquid\n\nObtained:
+    Pressed from roots pulled in the Emberwild Thicket\n\nNotes: Hot, fierce, and
+    stubborn. It wakes the body like a spark to dry tinder.'
   _category: 1
   _deliveryMethod: 1

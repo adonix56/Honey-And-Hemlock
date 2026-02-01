@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 3
   _displayName: Blue Crystal
+  _description: 'Description: Blue Sharp Mineral\n\nType: Dry\n\nObtained: Deep caverns
+    beneath Frostlight Ridge\n\nDescription: A shard of quiet moonlight. Clears the
+    mind the moment you hold it'
   _category: 1
   _deliveryMethod: 0

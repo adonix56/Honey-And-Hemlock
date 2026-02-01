@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 1
   _displayName: Old Bone
+  _description: 'Description: Yellowed Ancient Bones\n\nType: Dry\n\nObtained: Ancient
+    tombs in Everspire\n\nNotes: Strength lingers in old marrow. Grind it fine and
+    it lends its stubborn will to any brew.'
   _category: 0
   _deliveryMethod: 0

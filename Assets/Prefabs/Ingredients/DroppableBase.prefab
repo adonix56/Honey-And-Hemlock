@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c9c8e8d8cb2f94489848999c12636a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RespawnableObject
-  _respawnPrefab: {fileID: 0}
+  _respawnData: {fileID: 0}
 --- !u!1 &5956613152171427767
 GameObject:
   m_ObjectHideFlags: 0

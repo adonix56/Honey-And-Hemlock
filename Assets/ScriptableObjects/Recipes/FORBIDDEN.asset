@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e024b4d3a92224980f262083287783, type: 3}
   m_Name: FORBIDDEN
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
-  _name: FORBIDDEN
+  _name: ???
+  _description: 'Tier: FORBIDDEN\n\nEffect: Tears open the veil between worlds. More
+    of a cosmic horror experience rather than a potion.\n\nRecipe: Void Mushroom
+    + Bloodroot Extract + Seershard + Starlight Drop'
   _color: {r: 1, g: 1, b: 1, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: a1740b6dc3900c246ae9e1b5e15145c2, type: 2}

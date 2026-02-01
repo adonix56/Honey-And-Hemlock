@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Truth Serum
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Truth Serum
+  _description: 'Tier: Standard\n\nEffect: Loosens tongues and strips away deception.\n\nRecipe:
+    Moonwater + Seershard + Hemlock\n\nFlavor: Cold, bitter, and unsettlingly clear.'
   _color: {r: 0.76708794, g: 0.88614386, b: 0.9622642, a: 0.6745098}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 93b6f43a88cbe724c8152bc1d67415ba, type: 2}

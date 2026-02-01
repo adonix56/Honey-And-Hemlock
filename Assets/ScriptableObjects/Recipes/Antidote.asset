@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Antidote
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Antidote
+  _description: 'Tier: Standard\n\nEffect: Purges venom, corruption, and magical
+    toxins.\n\nRecipe: Honey + Blue Crystal + Bloodroot Extract\n\nFlavor: Sweet
+    at first, then sharply cleansing.'
   _color: {r: 0.4745655, g: 0.9622642, b: 0.44028127, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: f4dc3e812e5fe5e4b8234f0506401bd5, type: 2}

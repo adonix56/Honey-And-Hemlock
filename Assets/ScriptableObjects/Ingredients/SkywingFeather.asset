@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 2
   _displayName: Skywing Feather
+  _description: 'Description: White and Brown Feather\n\nType: Dry\n\nObtained: Caught
+    on high branches along the Windrest Cliffs\n\nNotes: Light as a promise and twice
+    as hopeful. Even holding it makes you feel a little weightless.'
   _category: 1
   _deliveryMethod: 0

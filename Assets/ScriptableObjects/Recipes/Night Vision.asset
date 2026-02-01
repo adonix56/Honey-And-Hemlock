@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: Night Vision
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Night Vision
-  _color: {r: 0.9293332, g: 0, b: 1, a: 1}
+  _description: 'Tier: Standard\n\nEffect: Grants sight in total darkness and reveals
+    hidden details.\n\nRecipe: Moonwater + Seershard + Blue Crystal\n\nFlavor: Cool
+    and electric, with a faint afterglow behind the eyes.'
+  _color: {r: 0.47668213, g: 0.9811321, b: 0.93155354, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 93b6f43a88cbe724c8152bc1d67415ba, type: 2}
     minAmount: 100

@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Courage Potion
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Courage Potion
+  _description: 'Tier: Standard\n\nEffect: Steadies the heart and fills the drinker
+    with boldness.\n\nRecipe: Bloodroot Extract + Skywing Feather + Honey\n\nFlavor:
+    Sweet, airy, and warming like a sunrise in the chest.'
   _color: {r: 0.9339623, g: 0.7221857, b: 0.118948035, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 4e4bdd9bb9b095c48a5c1a8146e1f38c, type: 2}

@@ -79,11 +79,8 @@ namespace HoneyAndHemlock.Brewing
         private void DestroyOrStoreDryIngredient(GameObject newIngredient)
         {
             // If it's stirrable, destroy it, otherwise, add to list of dry ingredients
-            if (_isStirrable)
-            {
-                Debug.Log("Setting ShrinkAndDestroy from DestroyOrStore");
-                newIngredient.AddComponent<ShrinkAndDestroy>();
-            } else _dryIngredients.Add(newIngredient);
+            if (_isStirrable) newIngredient.AddComponent<ShrinkAndDestroy>();
+            else _dryIngredients.Add(newIngredient);
         }
 
         private void OnTriggerExit(Collider other)
@@ -185,7 +182,6 @@ namespace HoneyAndHemlock.Brewing
             _liquidTop.ShowLiquid();
             for (int i = _dryIngredients.Count - 1; i >= 0; i--) 
             {
-                Debug.Log("Adding ShrinkAndDestroy from SetStirrable");
                 _dryIngredients[i].AddComponent<ShrinkAndDestroy>();
             }
             _dryIngredients.Clear();

@@ -14,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Ingredients.IngredientSO
   _type: 6
   _displayName: Honey
+  _description: 'Description: Thick, Golden in Short Gold Bottle\n\nType: Liquid\n\nObtained:
+    Common Hives\n\nNotes: Thick, golden comfort. It binds a potion together the
+    way kindness binds a village.'
   _category: 0
   _deliveryMethod: 1

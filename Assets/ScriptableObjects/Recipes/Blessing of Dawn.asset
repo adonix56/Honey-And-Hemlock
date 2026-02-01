@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Blessing of Dawn
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Blessing of Dawn
+  _description: 'Tier: Advanced\n\nEffect: Revitalizes life, growth, and renewal.\n\nRecipe:
+    Tears of Dawn + Honey + Skywing Feather\n\nFlavor: Warm, radiant, and softly
+    sweet.'
   _color: {r: 0.7075472, g: 0.49421698, b: 0.3571111, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: 074650153b2e0524986927e868080d61, type: 2}
