@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace HoneyAndHemlock.Brewing
@@ -12,8 +13,10 @@ namespace HoneyAndHemlock.Brewing
         [SerializeField] private float _drainDuration = 2f;
         [SerializeField] private float _pourDelay = 3f;
         [SerializeField] private XRSocketInteractor _corkSocket;
+        [SerializeField] private XRGrabInteractable _potionGrabbable;
 
         public bool CanFillPotion => !_hasCork && _potionContents == null;
+        public RecipeSO PotionContents => _potionContents;
 
         private RecipeSO _potionContents;
         private float _drainTimer;
@@ -25,6 +28,8 @@ namespace HoneyAndHemlock.Brewing
             _corkSocket ??= GetComponentInChildren<XRSocketInteractor>();
             _liquid ??= GetComponentInChildren<PotionLiquid>();
             if (_liquid == null) Debug.LogError("Potion Object does not have PotionLiquidChild");
+            _potionGrabbable ??= GetComponent<XRGrabInteractable>();
+            if (_potionGrabbable == null) Debug.LogError("Potion Object does not have XRGrabInteractable");
             _corkSocket.selectEntered.AddListener(CorkInserted);
             _corkSocket.selectExited.AddListener(CorkRemoved);
             _hasCork = false;
@@ -54,12 +59,18 @@ namespace HoneyAndHemlock.Brewing
             _potionContents = null;
         }
 
-        public bool TrySubmitPotion(out RecipeSO submittedPotion)
+        public bool CanSubmitPotion()
         {
-            submittedPotion = null;
-            if (_potionContents == null) return false;
-            submittedPotion = _potionContents;
-            return true;
+            return _hasCork && _potionContents != null;
+        }
+
+        public void SubmitPotion()
+        {
+            _potionGrabbable.enabled = false;
+            Rigidbody rb = GetComponent<Rigidbody>();
+            Collider collider = GetComponent<Collider>();
+            if (rb != null) rb.isKinematic = true;
+            if (collider != null) collider.enabled = false;
         }
 
         private void Update()

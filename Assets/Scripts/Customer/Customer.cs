@@ -19,12 +19,17 @@ namespace HoneyAndHemlock.Customers
         [SerializeField] private Transform _visual;
         [SerializeField] private Animator _visualAnimator;
         [SerializeField] private Animator _customerAnimator;
+        [SerializeField] private PotionDelivery _potionDelivery;
+
+        private Potion _submittedPotion;
 
         private void Awake()
         {
             _visual ??= transform.GetChild(0);
             _visualAnimator ??= _visual.GetComponent<Animator>();
             _customerAnimator ??= GetComponent<Animator>();
+            _potionDelivery ??= GetComponentInChildren<PotionDelivery>();
+            if (_potionDelivery != null) _potionDelivery.OnPotionSubmitted += ReceivedPotion;
         }
 
         void LateUpdate()
@@ -55,16 +60,22 @@ namespace HoneyAndHemlock.Customers
         // 10) CustomerManager -> () -> Wait for player to give potion
         public void WaitForPotion()
         {
+            _potionDelivery.enabled = true;
             _visualAnimator.SetTrigger(WAIT_FOR_POTION);
         }
 
         // 11) Player gave potion -> () Walk out -> CustomerManager
-        // TODO: Call this from XRSocketInteractable in Customer hand
-        public void ReceivedPotion(RecipeSO potion)
+        public void ReceivedPotion(Potion potion)
         {
             _visualAnimator.SetTrigger(RECEIVED_POTION);
             _customerAnimator.SetTrigger(RECEIVED_POTION);
-            OnReceivedPotion?.Invoke(potion);
+            _submittedPotion = potion;
+            OnReceivedPotion?.Invoke(potion.PotionContents);
+        }
+
+        public void DestroyPotion()
+        {
+            if ( _submittedPotion != null ) Destroy(_submittedPotion.gameObject);
         }
 
         // 14) CustomerCanvas -> () -> CustomerManager
