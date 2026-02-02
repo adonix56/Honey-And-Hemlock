@@ -21,7 +21,7 @@ MonoBehaviour:
     whole thing. Every time someone asks me a question my heart starts racing. I
     need to steady myself before I snap at someone.
   _playerResponse:
-  - Something to calm your nerves?
+  - Something for your nerves?
   - I'll help you relax
   _successfulResponse:
   - It's like someone untied a knot in my chest. The cute pup is still barking but

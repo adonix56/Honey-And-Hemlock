@@ -12,6 +12,8 @@ namespace HoneyAndHemlock.Brewing
     {
         private const float JITTER_THRESHOLD = 0.1f;
 
+        public Action OnCosmicStart;
+
         [SerializeField] private RecipeMatcher _recipeMatcher;
         [SerializeField] private LiquidTop _liquidTop;
         [SerializeField] private int _spinsToBrew;
@@ -248,6 +250,12 @@ namespace HoneyAndHemlock.Brewing
             _stirTransform = null;
             _potionComplete = true;
 
+            if (_matchedRecipe == _cosmicRecipe)
+            {
+                CosmicActivate();
+                return;
+            }
+
             if (_audioSource != null)
             {
                 _audioSource.Stop();
@@ -277,6 +285,14 @@ namespace HoneyAndHemlock.Brewing
             _liquidTop.ResetLiquidColor();
             _liquidTop.HideLiquid();
             _filterRecipeResult = RecipeMatchAmount.Multiple;
+        }
+
+        private void CosmicActivate()
+        {
+            _audioSource.Stop();
+            ResetBrew();
+            OnCosmicStart?.Invoke();
+            return;
         }
     }
 }

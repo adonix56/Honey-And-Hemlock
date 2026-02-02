@@ -25,6 +25,8 @@ namespace HoneyAndHemlock.Customers
         [Header("UI")]
         [SerializeField] private Animator _animator;
         [SerializeField] private GameObject _customerRequest;
+        [SerializeField] private Transform _requestSpawn;
+        [SerializeField] private Transform _resultSpawn;
         [SerializeField] private TextMeshProUGUI _customerName;
         [SerializeField] private Image _customerNameImage;
         [SerializeField] private Sprite _customerNameSprite;
@@ -33,6 +35,7 @@ namespace HoneyAndHemlock.Customers
         [SerializeField] private Image _customerDialogueImage;
         [SerializeField] private Sprite _customerDialogueRequestSprite;
         [SerializeField] private Sprite _customerDialogueResultSprite;
+        [SerializeField] private TextMeshProUGUI _customerCosmic;
         [SerializeField] private Button _playerButton;
         [SerializeField] private TextMeshProUGUI _playerButtonText;
         [SerializeField] private Button _resultButton;
@@ -53,13 +56,16 @@ namespace HoneyAndHemlock.Customers
         [SerializeField] private Vector2 _playerPitchRange;
         [SerializeField] private Vector2 _femalePitchRange;
 
+        private RectTransform _customerRequestTransform;
         private CustomerSO _currentCustomer;
         private int _storyIdx;
         private bool _success;
+        private bool _cosmicActive;
 
         private void Awake()
         {
             _animator ??= GetComponent<Animator>();
+            _customerRequestTransform = _customerRequest.GetComponent<RectTransform>();
             //StartCoroutine(TestSound());
         }
 
@@ -74,10 +80,15 @@ namespace HoneyAndHemlock.Customers
             _customerDialogueImage.sprite = _customerDialogueRequestSprite;
             _customerDialogue.ForceMeshUpdate();
             _customerDialogue.maxVisibleCharacters = 0;
+            _customerCosmic.text = _storyIdx < _currentCustomer.CosmicResponse.Length ? _currentCustomer.CosmicResponse[_storyIdx] : _currentCustomer.CosmicResponse[0];
+            _customerCosmic.maxVisibleCharacters = 0;
+            _customerCosmic.ForceMeshUpdate();
             _playerButtonText.text = _storyIdx < _currentCustomer.PlayerResponse.Length ? _currentCustomer.PlayerResponse[_storyIdx] : _currentCustomer.PlayerResponse[0];
             _playerButtonText.ForceMeshUpdate();
             _playerButtonText.maxVisibleCharacters = 0;
             _resultButton.interactable = false;
+            _customerRequest.transform.position = _requestSpawn.transform.position;
+            _customerRequest.transform.rotation = _requestSpawn.transform.rotation;
             _animator.SetBool(CUSTOMER_REQUEST, true);
         }
 
@@ -134,6 +145,8 @@ namespace HoneyAndHemlock.Customers
             _resultButtonText.ForceMeshUpdate();
             _resultButtonText.maxVisibleCharacters = 0;
             _currentCustomer = null;
+            _customerRequest.transform.position = _resultSpawn.transform.position;
+            _customerRequest.transform.rotation = _resultSpawn.transform.rotation;
 
             _animator.SetBool(CUSTOMER_RESULT, true);
         }
@@ -188,6 +201,23 @@ namespace HoneyAndHemlock.Customers
                 tmp.maxVisibleCharacters = i + 1;
                 yield return new WaitForSeconds(_dialogueSpeed);
             }
+        }
+
+        public void CosmicStart()
+        {
+            _dialogueAudioSource.Stop();
+            _dialogueAudioSource.enabled = false;
+        }
+
+        public void CosmicEnd()
+        {
+            _dialogueAudioSource.enabled = true;
+            _animator.SetTrigger(CUSTOMER_COSMIC);
+        }
+
+        public void OnCosmicOpened()
+        {
+            StartCoroutine(TypeText(_customerCosmic, false));
         }
     }
 }
