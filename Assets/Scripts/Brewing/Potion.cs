@@ -14,14 +14,18 @@ namespace HoneyAndHemlock.Brewing
         [SerializeField] private float _pourDelay = 3f;
         [SerializeField] private XRSocketInteractor _corkSocket;
         [SerializeField] private XRGrabInteractable _potionGrabbable;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _corkAttached;
+        [SerializeField] private AudioClip _corkDetached;
+        [SerializeField] private AudioClip _submitPotionClip;
 
-        public bool CanFillPotion => !_hasCork && _potionContents == null;
+        public bool CanFillPotion => _cork == null && _potionContents == null;
         public RecipeSO PotionContents => _potionContents;
 
         private RecipeSO _potionContents;
         private float _drainTimer;
         private float _pourTimer;
-        private bool _hasCork;
+        private RespawnableObject _cork;
 
         private void Awake()
         {
@@ -32,17 +36,19 @@ namespace HoneyAndHemlock.Brewing
             if (_potionGrabbable == null) Debug.LogError("Potion Object does not have XRGrabInteractable");
             _corkSocket.selectEntered.AddListener(CorkInserted);
             _corkSocket.selectExited.AddListener(CorkRemoved);
-            _hasCork = false;
+            _audioSource ??= GetComponent<AudioSource>();
         }
 
         private void CorkInserted(SelectEnterEventArgs args)
         {
-            _hasCork = true;
+            _cork = args.interactableObject.transform.GetComponent<RespawnableObject>();
+            if (_audioSource != null && _corkAttached != null) _audioSource.PlayOneShot(_corkAttached);
         }
 
         private void CorkRemoved(SelectExitEventArgs args)
         {
-            _hasCork = false;
+            _cork = null;
+            if (_audioSource != null && _corkDetached != null) _audioSource.PlayOneShot(_corkDetached);
         }
 
         public void FillPotion(RecipeSO newPotion)
@@ -51,6 +57,7 @@ namespace HoneyAndHemlock.Brewing
             _liquid.SetLiquidColor(_potionContents.Color);
             _liquid.FillLiquid(_fillAmount);
             _pourTimer = _pourDelay;
+            _audioSource.Play();
         }
 
         private void EmptyPotion()
@@ -61,11 +68,12 @@ namespace HoneyAndHemlock.Brewing
 
         public bool CanSubmitPotion()
         {
-            return _hasCork && _potionContents != null;
+            return _cork != null && _potionContents != null;
         }
 
         public void SubmitPotion()
         {
+            if (_audioSource != null && _submitPotionClip) _audioSource.PlayOneShot(_submitPotionClip);
             _potionGrabbable.enabled = false;
             Rigidbody rb = GetComponent<Rigidbody>();
             Collider collider = GetComponent<Collider>();
@@ -81,17 +89,22 @@ namespace HoneyAndHemlock.Brewing
                 _drainTimer = Mathf.Max(0, _drainTimer);
                 _liquid.FillLiquid(_fillAmount * _drainTimer / _drainDuration);
             }
-            if (!_hasCork)
-            {
-                if (_pourTimer > 0) _pourTimer -= Time.deltaTime;
-                else if (_potionContents != null) CalculateEmptyPotion();
-            }
+            if (_pourTimer > 0) _pourTimer -= Time.deltaTime;
+            else if (_cork == null &&_potionContents != null) CalculateEmptyPotion();
         }
 
         private void CalculateEmptyPotion()
         {
             float pourAngle = Vector3.Dot(transform.up, Vector3.down);
             if (pourAngle > _pourThreshold) EmptyPotion();
+        }
+
+        public void DestroyPotion()
+        {
+            if (_cork != null) _cork.RespawnMe(true);
+            if (TryGetComponent<RespawnableObject>(out RespawnableObject ro)) ro.RespawnMe(true);
+            Destroy(_cork.gameObject);
+            Destroy(gameObject);
         }
     }
 }

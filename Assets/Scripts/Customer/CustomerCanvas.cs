@@ -22,6 +22,7 @@ namespace HoneyAndHemlock.Customers
         public Action OnPlayerResponsePressed;
         public Action OnResultPressed;
 
+        [Header("UI")]
         [SerializeField] private Animator _animator;
         [SerializeField] private GameObject _customerRequest;
         [SerializeField] private TextMeshProUGUI _customerName;
@@ -41,6 +42,17 @@ namespace HoneyAndHemlock.Customers
         [SerializeField] private Sprite _resultButtonFail;
         [SerializeField] private float _dialogueSpeed;
 
+        [Header("Audio")]
+        [SerializeField] private AudioSource _dialogueAudioSource;
+        [SerializeField] private AudioSource _resultAudioSource;
+        [SerializeField] private AudioClip _dialogueSound;
+        [SerializeField] private AudioClip _resultSoundSuccess;
+        [SerializeField] private AudioClip _resultSoundFail;
+        [SerializeField] private AudioClip _buttonPress;
+        [SerializeField] private Vector2 _malePitchRange;
+        [SerializeField] private Vector2 _playerPitchRange;
+        [SerializeField] private Vector2 _femalePitchRange;
+
         private CustomerSO _currentCustomer;
         private int _storyIdx;
         private bool _success;
@@ -48,6 +60,7 @@ namespace HoneyAndHemlock.Customers
         private void Awake()
         {
             _animator ??= GetComponent<Animator>();
+            //StartCoroutine(TestSound());
         }
 
         // 5) CustomerManager -> () -> Animator
@@ -86,6 +99,7 @@ namespace HoneyAndHemlock.Customers
         {
             OnPlayerResponsePressed?.Invoke();
             _animator.SetBool(PLAYER_BUTTON, false);
+            if (_resultAudioSource != null && _buttonPress != null) _resultAudioSource.PlayOneShot(_buttonPress); 
         }
 
         // 13) CustomerManager -> () -> Wait for Customer to reach outside (Customer.ReachingOutdoors())
@@ -106,11 +120,13 @@ namespace HoneyAndHemlock.Customers
                 _customerDialogue.text = _storyIdx < _currentCustomer.SuccessfulResponse.Length ? _currentCustomer.SuccessfulResponse[_storyIdx] : _currentCustomer.SuccessfulResponse[0];
                 _resultButtonText.text = SUCCESS;
                 _resultButtonImage.sprite = _resultButtonSuccess;
+                if (_resultAudioSource != null && _resultSoundSuccess != null) _resultAudioSource.PlayOneShot(_resultSoundSuccess);
             } else
             {
                 _customerDialogue.text = _storyIdx < _currentCustomer.FailedResponse.Length ? _currentCustomer.FailedResponse[_storyIdx] : _currentCustomer.FailedResponse[0];
                 _resultButtonText.text = FAIL;
                 _resultButtonImage.sprite = _resultButtonFail;
+                if (_resultAudioSource != null && _resultSoundFail != null) _resultAudioSource.PlayOneShot(_resultSoundFail);
             }
             _customerDialogueImage.sprite = _customerDialogueResultSprite;
             _customerDialogue.ForceMeshUpdate();
@@ -133,29 +149,42 @@ namespace HoneyAndHemlock.Customers
         {
             OnResultPressed?.Invoke();
             _animator.SetBool(CUSTOMER_RESULT, false);
+            if (_resultAudioSource != null && _buttonPress != null) _resultAudioSource.PlayOneShot(_buttonPress);
         }
 
         private IEnumerator ButtonToActivate(Button button, TextMeshProUGUI buttonText)
         {
-            yield return StartCoroutine(TypeText(buttonText));
+            yield return StartCoroutine(TypeText(buttonText, true));
             yield return new WaitForSeconds(0.5f);
             button.interactable = true;
         }
 
         private IEnumerator DialogueToButton()
         {
-            yield return StartCoroutine(TypeText(_customerDialogue));
+            yield return StartCoroutine(TypeText(_customerDialogue, false));
             yield return new WaitForSeconds(0.5f);
             if (_currentCustomer != null) _animator.SetBool(PLAYER_BUTTON, true);
             else _animator.SetTrigger(RESULT_BUTTON);
         }
 
-        private IEnumerator TypeText(TextMeshProUGUI tmp)
+        private IEnumerator TypeText(TextMeshProUGUI tmp, bool isPlayerSpeaking)
         {
             int totalCharacters = tmp.textInfo.characterCount;
 
             for (int i = 0; i < totalCharacters; i++)
             {
+                if (_dialogueAudioSource != null && _dialogueSound != null)
+                {
+                    float pitch = 0;
+                    if (isPlayerSpeaking) pitch = UnityEngine.Random.Range(_playerPitchRange.x, _playerPitchRange.y);
+                    else
+                    {
+                        if (_storyIdx == 0) pitch = UnityEngine.Random.Range(_malePitchRange.x, _malePitchRange.y);
+                        else pitch = UnityEngine.Random.Range(_femalePitchRange.x, _femalePitchRange.y);
+                    }
+                    _dialogueAudioSource.pitch = pitch;
+                    _dialogueAudioSource.PlayOneShot(_dialogueSound);
+                }
                 tmp.maxVisibleCharacters = i + 1;
                 yield return new WaitForSeconds(_dialogueSpeed);
             }

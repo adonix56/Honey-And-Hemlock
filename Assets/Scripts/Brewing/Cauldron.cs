@@ -1,4 +1,5 @@
 using HoneyAndHemlock.Ingredients;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text;
@@ -17,6 +18,12 @@ namespace HoneyAndHemlock.Brewing
         [SerializeField] private float _stirProgressDecay;
         [SerializeField] private IngredientSO _junkIngredientSO;
         [SerializeField] private RecipeSO _junkRecipeSO;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private List<AudioClip> _ingredientDropClips;
+        [SerializeField] private AudioClip _junkDropClip;
+        [SerializeField] private AudioClip _finishStirringClip;
+        [SerializeField] private AudioClip _cosmicClip;
+        [SerializeField] private RecipeSO _cosmicRecipe;
 
         private bool _isStirring => _stirTransform != null;
         private bool _isStirrable;
@@ -33,6 +40,7 @@ namespace HoneyAndHemlock.Brewing
         {
             _recipeMatcher ??= GetComponent<RecipeMatcher>();
             _liquidTop ??= GetComponentInChildren<LiquidTop>();
+            _audioSource ??= GetComponent<AudioSource>();
             _ingredients = new Dictionary<IngredientSO, int>();
             _dryIngredients = new List<GameObject>();
             _stirProgress = 0;
@@ -58,6 +66,7 @@ namespace HoneyAndHemlock.Brewing
                 if (_isStirrable)
                 {
                     _stirTransform = newStir.StirCalculationPoint;
+                    if (_audioSource != null) _audioSource.Play();
                     _prevAngle = CalculateAngle();
                 }
             } else if (other.TryGetComponent<XRGrabInteractable>(out XRGrabInteractable nonIngredient))
@@ -87,13 +96,17 @@ namespace HoneyAndHemlock.Brewing
         {
             if (other.TryGetComponent<Stirrer>(out Stirrer stirrer))
             {
-                if (_stirTransform == stirrer.StirCalculationPoint) _stirTransform = null;
+                if (_stirTransform == stirrer.StirCalculationPoint)
+                {
+                    if (_audioSource != null) _audioSource.Stop();
+                    _stirTransform = null;
+                }
             }
         }
 
         private void Update()
         {
-            if (_isStirring)
+            if (_isStirring && !_potionComplete)
             {
                 CalculateStir();
             } else if (_stirProgress > 0)
@@ -152,6 +165,8 @@ namespace HoneyAndHemlock.Brewing
             Debug.Log($"Adding {ingredient.DisplayName}");
             ResetStirring();
             _potionComplete = false;
+            HandleIngredientSound(ingredient);
+
             if (_ingredients.ContainsKey(ingredient))
             {
                 _ingredients[ingredient]++;
@@ -168,6 +183,26 @@ namespace HoneyAndHemlock.Brewing
                 {
                     SetStirrable();
                 }
+            }
+        }
+
+        private void HandleIngredientSound(IngredientSO ingredient)
+        {
+            if (_audioSource == null) return;
+            if (_ingredientDropClips == null) return;
+            if (_ingredientDropClips.Count != 3) return;
+
+            switch (ingredient.DeliveryMethod)
+            {
+                case IngredientDeliveryMethod.Drop:
+                    if (_isStirrable) _audioSource.PlayOneShot(_ingredientDropClips[0]);
+                    break;
+                case IngredientDeliveryMethod.Drip:
+                    if (_isStirrable) _audioSource.PlayOneShot(_ingredientDropClips[1]);
+                    break;
+                default:
+                    _audioSource.PlayOneShot(_ingredientDropClips[2]);
+                    break;
             }
         }
 
@@ -190,6 +225,7 @@ namespace HoneyAndHemlock.Brewing
         private void AddJunk(XRGrabInteractable nonIngredient)
         {
             Debug.Log($"Adding NonIngredient {nonIngredient.name}");
+            if (_isStirrable && _audioSource != null && _junkDropClip != null) _audioSource.PlayOneShot(_junkDropClip);
             if (!_ingredients.ContainsKey(_junkIngredientSO)) _ingredients[_junkIngredientSO] = 1;
             _filterRecipeResult = RecipeMatchAmount.None;
             _matchedRecipe = null;
@@ -211,6 +247,12 @@ namespace HoneyAndHemlock.Brewing
         {
             _stirTransform = null;
             _potionComplete = true;
+
+            if (_audioSource != null)
+            {
+                _audioSource.Stop();
+                if (_finishStirringClip != null) _audioSource.PlayOneShot(_finishStirringClip);
+            }
         }
 
         private void FillPotionAndResetCauldron(Potion emptyPotion)

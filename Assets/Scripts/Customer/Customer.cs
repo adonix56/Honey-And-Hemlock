@@ -77,8 +77,7 @@ namespace HoneyAndHemlock.Customers
         {
             if (_submittedPotion != null)
             {
-                if (TryGetComponent<RespawnableObject>(out RespawnableObject ro)) ro.RespawnMe();
-                Destroy(_submittedPotion.gameObject);
+                _submittedPotion.DestroyPotion();
             }
         }
 

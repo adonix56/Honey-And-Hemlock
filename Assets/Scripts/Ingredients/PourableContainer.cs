@@ -22,6 +22,12 @@ namespace HoneyAndHemlock.Ingredients
         private float _minPourSpeed;
         [SerializeField, Range(0f, 50f)]
         private float _maxPourSpeed;
+        [SerializeField]
+        private AudioSource _audioSource;
+        [SerializeField]
+        private AudioClip _corkAttached;
+        [SerializeField]
+        private AudioClip _corkDetached;
 
         private ParticleSystem.EmissionModule _emission;
 
@@ -30,15 +36,38 @@ namespace HoneyAndHemlock.Ingredients
         {
             _particleSystem ??= GetComponentInChildren<ParticleSystem>();
             _corkSocket ??= GetComponentInChildren<XRSocketInteractor>();
+            _audioSource ??= GetComponent<AudioSource>();
         }
 #endif
 
         protected override void Awake()
         {
             base.Awake();
+            _particleSystem ??= GetComponentInChildren<ParticleSystem>();
+            _corkSocket ??= GetComponentInChildren<XRSocketInteractor>();
+            _audioSource ??= GetComponent<AudioSource>();
             _emission = _particleSystem.emission;
             ParticleIngredient _particleIngredient = _particleSystem.GetComponent<ParticleIngredient>();
             _particleIngredient.SetIngredientSO(_data);
+            _corkSocket.selectEntered.AddListener(OnCorkAttached);
+            _corkSocket.selectExited.AddListener(OnCorkDetached);
+        }
+
+        protected override void OnDestroy()
+        {
+            _corkSocket.selectEntered.RemoveAllListeners();
+            _corkSocket.selectExited.RemoveAllListeners();
+            base.OnDestroy();
+        }
+
+        private void OnCorkAttached(SelectEnterEventArgs args)
+        {
+            if (_audioSource != null) _audioSource.PlayOneShot(_corkAttached);
+        }
+
+        private void OnCorkDetached(SelectExitEventArgs args)
+        {
+            if (_audioSource != null) _audioSource.PlayOneShot(_corkDetached);
         }
 
         public override void ProcessInteractable(XRInteractionUpdateOrder.UpdatePhase updatePhase)
@@ -72,10 +101,18 @@ namespace HoneyAndHemlock.Ingredients
 
                 _emission.rateOverTime = pourSpeed;
 
-                if (!_particleSystem.isPlaying) _particleSystem.Play();
+                if (!_particleSystem.isPlaying)
+                {
+                    if (_audioSource != null) _audioSource.Play();
+                    _particleSystem.Play();
+                }
             } else
             {
-                if (_particleSystem.isPlaying) _particleSystem.Stop();
+                if (_particleSystem.isPlaying)
+                {
+                    if (_audioSource != null) _audioSource.Stop();
+                    _particleSystem.Stop();
+                }
             }
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace HoneyAndHemlock.Ingredients
 {
-    public class DrippableContainer : XRGrabInteractable
+    public class DrippableCork : XRGrabInteractable
     {
         [Header("Ingredient Configuration")]
         [SerializeField] private IngredientSO _data;
@@ -14,6 +14,8 @@ namespace HoneyAndHemlock.Ingredients
         [SerializeField] private Transform _fallingDropAttachTransform;
         [SerializeField] private float _baseGrowthRate;
         [SerializeField] private float _holdThreshold;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _dripClip;
 
         private IXRSelectInteractor _currentInteractor;
         private FallingDrop _currentFallingDrop;
@@ -21,6 +23,7 @@ namespace HoneyAndHemlock.Ingredients
         protected override void Awake()
         {
             base.Awake();
+            _audioSource ??= GetComponent<AudioSource>();
             CreateDrop();
         }
 
@@ -95,6 +98,7 @@ namespace HoneyAndHemlock.Ingredients
         {
             _currentFallingDrop.OnDrop -= OnDrop;
             _currentFallingDrop = null;
+            if (_audioSource != null && _dripClip != null) _audioSource.PlayOneShot(_dripClip);
             CreateDrop();
         }
     }

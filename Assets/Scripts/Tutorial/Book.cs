@@ -34,6 +34,11 @@ namespace HoneyAndHemlock.Tutorial
         [SerializeField] private Vector3 _centerSizeClosed;
         [SerializeField] private Vector3 _centerPositionOpened;
         [SerializeField] private Vector3 _centerSizeOpened;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _bookOpenClip;
+        [SerializeField] private AudioClip _bookCloseClip;
+        [SerializeField] private AudioClip _turnPageClip;
+        [SerializeField] private AudioClip _tabClip;
 
         [Header("Book Contents")]
         [SerializeField] private List<RecipeSO> _recipes;
@@ -71,6 +76,12 @@ namespace HoneyAndHemlock.Tutorial
             if (_bookState != BookState.Moving)
             {
                 _isOpen = !_isOpen;
+                if (_animator != null && _bookOpenClip != null)
+                {
+                    if (_isOpen) _audioSource.PlayOneShot(_bookOpenClip);
+                    else _audioSource.PlayOneShot(_bookCloseClip);
+                }
+                
                 _animator.SetBool(OPEN_BOOK, _isOpen);
                 _boxCollider.center = _isOpen ? _centerPositionOpened : _centerPositionClosed;
                 _boxCollider.size = _isOpen ? _centerSizeOpened : _centerSizeClosed;
@@ -100,6 +111,8 @@ namespace HoneyAndHemlock.Tutorial
                 _nameText.text = _ingredients[_ingredientIdx].DisplayName;
                 _contentText.text = _ingredients[_ingredientIdx].Description;
             }
+
+            if (_audioSource != null && _tabClip != null) _audioSource.PlayOneShot(_tabClip);
         }
 
         public void NextPage()
@@ -118,6 +131,7 @@ namespace HoneyAndHemlock.Tutorial
                 _contentText.text = _ingredients[_ingredientIdx].Description;
 
             }
+            if (_audioSource != null && _turnPageClip != null) _audioSource.PlayOneShot(_turnPageClip);
         }
 
         public void PreviousPage()
@@ -134,8 +148,8 @@ namespace HoneyAndHemlock.Tutorial
                 if (_ingredientIdx < 0) _ingredientIdx = _ingredients.Count - 1;
                 _nameText.text = _ingredients[_ingredientIdx].DisplayName;
                 _contentText.text = _ingredients[_ingredientIdx].Description;
-
             }
+            if (_audioSource != null && _turnPageClip != null) _audioSource.PlayOneShot(_turnPageClip);
         }
     }
 }

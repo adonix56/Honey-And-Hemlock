@@ -16,11 +16,11 @@ public class RespawnableObject : MonoBehaviour
         //_startScale = transform.localScale;
     }
 
-    public void RespawnMe()
+    public void RespawnMe(bool noParent = false)
     {
         Debug.Log($"Respawning {name}");
         Transform parent = transform.parent;
-        GameObject newMe = Instantiate(_respawnData.RespawnPrefab, _startPos, _startRot, parent);
+        GameObject newMe = Instantiate(_respawnData.RespawnPrefab, _startPos, _startRot, noParent ? null : parent);
         //if (newMe.TryGetComponent<ShrinkAndDestroy>(out ShrinkAndDestroy sad))
         //{
         //    Destroy(sad);
