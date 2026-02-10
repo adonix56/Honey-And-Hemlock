@@ -61,7 +61,7 @@ Material:
     m_Floats:
     - _DepthMaxDistance: 1
     - _Flow_Speed: 0.01
-    - _FoamDistance: 0.1
+    - _FoamDistance: 0.02
     - _FoamMaxDistance: 0.4
     - _FoamMinDistance: 0.04
     - _FoamOffset: 0.95
@@ -74,8 +74,8 @@ Material:
     - _RippleDissolve: 2.92
     - _RippleScale: 7.71
     - _RippleSpeed: 1.35
-    - _Scale: 2.35
-    - _Size: 5.17
+    - _Scale: 2.32
+    - _Size: 4.78
     - _Strength: 0.0075
     - _SurfaceDistortionAmount: 0.27
     - _SurfaceNoiseCutoff: 0.777

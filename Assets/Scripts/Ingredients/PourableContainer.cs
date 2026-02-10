@@ -90,6 +90,7 @@ namespace HoneyAndHemlock.Ingredients
 
         private void ProcessPourLogic() 
         {
+            if (!isSelected) return;
             float pourAngle = Vector3.Dot(transform.up, Vector3.down);
             if (pourAngle > _pourThreshold)
             {

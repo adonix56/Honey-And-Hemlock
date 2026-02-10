@@ -15,6 +15,7 @@ namespace HoneyAndHemlock.Customers
         public Action OnReachedCounter;
         public Action<RecipeSO> OnReceivedPotion;
         public Action OnFinishedLoop;
+        public Action OnOpenDoor;
 
         [SerializeField] private Transform _visual;
         [SerializeField] private Animator _visualAnimator;
@@ -85,6 +86,11 @@ namespace HoneyAndHemlock.Customers
         public void ReachingOutdoors()
         {
             OnFinishedLoop?.Invoke();
+        }
+
+        public void OpenDoor()
+        {
+            OnOpenDoor?.Invoke();
         }
     }
 }

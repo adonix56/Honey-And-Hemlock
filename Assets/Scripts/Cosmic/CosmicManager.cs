@@ -32,6 +32,7 @@ namespace HoneyAndHemlock.Cosmic
         {
             Manager.instance.StopSong();
             RenderSettings.skybox = _cosmicSkybox;
+            RenderSettings.fog = true;
             DynamicGI.UpdateEnvironment();
             //_normalPlayer.gameObject.SetActive(false);
             //_cosmicPlayer.gameObject.SetActive(true);
@@ -42,6 +43,7 @@ namespace HoneyAndHemlock.Cosmic
         {
             Manager.instance.PlaySong(0);
             RenderSettings.skybox = _originalSkybox;
+            RenderSettings.fog = false;
             DynamicGI.UpdateEnvironment();
             _customerCanvas.CosmicEnd();
             // _cosmicPlayer.gameObject.SetActive(false);

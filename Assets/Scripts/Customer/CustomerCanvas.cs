@@ -184,9 +184,10 @@ namespace HoneyAndHemlock.Customers
         {
             int totalCharacters = tmp.textInfo.characterCount;
 
+            bool skipOne = false;
             for (int i = 0; i < totalCharacters; i++)
             {
-                if (_dialogueAudioSource != null && _dialogueSound != null)
+                if (skipOne && _dialogueAudioSource != null && _dialogueSound != null)
                 {
                     float pitch = 0;
                     if (isPlayerSpeaking) pitch = UnityEngine.Random.Range(_playerPitchRange.x, _playerPitchRange.y);
@@ -198,6 +199,7 @@ namespace HoneyAndHemlock.Customers
                     _dialogueAudioSource.pitch = pitch;
                     _dialogueAudioSource.PlayOneShot(_dialogueSound);
                 }
+                skipOne = !skipOne;
                 tmp.maxVisibleCharacters = i + 1;
                 yield return new WaitForSeconds(_dialogueSpeed);
             }

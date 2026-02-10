@@ -7,10 +7,16 @@ namespace HoneyAndHemlock.Customers
 {
     public class CustomerManager : MonoBehaviour
     {
+        private const string OPEN_DOOR = "OpenDoor";
+
         [SerializeField] private GameObject _customerPrefab;
         [SerializeField] private float _secondsBetweenCustomers;
         [SerializeField] private CustomerCanvas _customerCanvas;
         [SerializeField] private List<CustomerSO> _customers;
+        [SerializeField] private Animator _animator;
+        [SerializeField] private AudioSource _audioSource;
+        [SerializeField] private AudioClip _openDoor;
+        [SerializeField] private AudioClip _closeDoor;
 
         private Customer _currentCustomer;
         private int _customerIdx;
@@ -21,6 +27,7 @@ namespace HoneyAndHemlock.Customers
         {
             _customerCanvas.OnPlayerResponsePressed += OnWaitForPotion;
             _customerCanvas.OnResultPressed += OnResultClosed;
+            _audioSource ??= GetComponent<AudioSource>();
             StartCoroutine(SpawnNextCustomer(true));
         }
 
@@ -33,6 +40,7 @@ namespace HoneyAndHemlock.Customers
             _currentCustomer.OnReachedCounter += OnCustomerReachedCounter;
             _currentCustomer.OnReceivedPotion += OnReceivedPotion;
             _currentCustomer.OnFinishedLoop += OnCustomerFinishedLoop;
+            _currentCustomer.OnOpenDoor += OpenDoor;
 
             if (!firstCustomer)
             {
@@ -45,6 +53,7 @@ namespace HoneyAndHemlock.Customers
             _lastResultClosed = false;
             _customerIdx = firstCustomer ? 0 : Random.Range(0, _customers.Count);
             _storyIdx = _currentCustomer.StartCustomer() ? 0 : 1;
+            OpenDoor();
         }
 
         // 4) Customer -> () -> CustomerCanvas
@@ -76,6 +85,21 @@ namespace HoneyAndHemlock.Customers
         private void OnResultClosed()
         {
             _lastResultClosed = true;
+        }
+
+        public void OpenDoor()
+        {
+            _animator.SetTrigger(OPEN_DOOR);
+        }
+
+        public void PlayOpenDoor()
+        {
+            if (_audioSource != null && _openDoor != null) _audioSource.PlayOneShot(_openDoor);
+        }
+
+        public void PlayCloseDoor()
+        {
+            if (_audioSource != null && _closeDoor != null) _audioSource.PlayOneShot(_closeDoor);
         }
     }
 }

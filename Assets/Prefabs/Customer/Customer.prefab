@@ -186,7 +186,6 @@ MonoBehaviour:
   _visualAnimator: {fileID: 8522055349693798758}
   _customerAnimator: {fileID: 2770837830935193803}
   _potionDelivery: {fileID: 3850312923370940184}
-  _audioSource: {fileID: 1376190852000183230}
 --- !u!136 &8115525847384729680
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -289,7 +288,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.385
       inSlope: 0
       outSlope: 0
       tangentMode: 0

@@ -247,14 +247,14 @@ namespace HoneyAndHemlock.Brewing
 
         public void CompleteBrew()
         {
-            _stirTransform = null;
-            _potionComplete = true;
-
             if (_matchedRecipe == _cosmicRecipe)
             {
                 CosmicActivate();
                 return;
             }
+
+            _stirTransform = null;
+            _potionComplete = true;
 
             if (_audioSource != null)
             {
@@ -279,6 +279,7 @@ namespace HoneyAndHemlock.Brewing
             _isStirrable = false;
             _potionComplete = false;
             _stirTransform = null;
+            _matchedRecipe = null;
             _dryIngredients.Clear();
             _ingredients.Clear();
             _recipeMatcher.SetupNewRecipe();
@@ -290,6 +291,10 @@ namespace HoneyAndHemlock.Brewing
         private void CosmicActivate()
         {
             _audioSource.Stop();
+            if (_stirTransform.parent.TryGetComponent<RespawnableObject>(out RespawnableObject ro)) {
+                ro.RespawnMe();
+                Destroy(_stirTransform.parent.gameObject);
+            }
             ResetBrew();
             OnCosmicStart?.Invoke();
             return;

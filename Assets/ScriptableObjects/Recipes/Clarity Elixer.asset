@@ -13,14 +13,20 @@ MonoBehaviour:
   m_Name: Clarity Elixer
   m_EditorClassIdentifier: Assembly-CSharp::HoneyAndHemlock.Brewing.RecipeSO
   _name: Clarity Elixer
-  _description: 'Tier: Simple\n\nEffect: Sharpens focus, clears mental fog, and enhances
-    reasoning.\n\nRecipe: Moonwater + Blue Crystal\n\nFlavor: Crisp and bright, like
-    winter air in the lungs.'
+  _description: 'Tier: Standard\n\nEffect: Sharpens focus, clears mental fog, and
+    enhances reasoning.\n\nRecipe: Moonwater + Blue Crystal + Seershard + Skywing
+    Feather\n\nFlavor: Crisp and bright, like winter air in the lungs.'
   _color: {r: 0.4438857, g: 0.65938306, b: 0.8962264, a: 1}
   _requiredIngredients:
   - ingredient: {fileID: 11400000, guid: f4dc3e812e5fe5e4b8234f0506401bd5, type: 2}
     minAmount: 2
     maxAmount: 2
   - ingredient: {fileID: 11400000, guid: 93b6f43a88cbe724c8152bc1d67415ba, type: 2}
+    minAmount: 100
+    maxAmount: 40
+  - ingredient: {fileID: 11400000, guid: 6170c7913ef7da240876dcabd2693725, type: 2}
+    minAmount: 100
+    maxAmount: 40
+  - ingredient: {fileID: 11400000, guid: 4e4bdd9bb9b095c48a5c1a8146e1f38c, type: 2}
     minAmount: 100
     maxAmount: 40
