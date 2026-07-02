@@ -23,7 +23,7 @@ public class MainMenu : MonoBehaviour
 
     private void Awake()
     {
-        _vignetteLabel.gameObject.SetActive(PlayerPrefs.GetInt(VIGNETTE, 1) == 1);
+        SetVignette(PlayerPrefs.GetInt(VIGNETTE, 1) == 1);
     }
 
     public void OnPlay()
@@ -45,17 +45,15 @@ public class MainMenu : MonoBehaviour
     public void OnVignette()
     {
         if (_switchingScenes) return;
-        if (_vignetteLabel.sprite == _onButton)
-        {
-            _vignetteLabel.sprite = _offButton;
-            _vignetteText.text = "Vignette Off";
-            PlayerPrefs.SetInt(VIGNETTE, 0);
-        } else
-        {
-            _vignetteLabel.sprite = _onButton;
-            _vignetteText.text = "Vignette On";
-            PlayerPrefs.SetInt(VIGNETTE, 1);
-        }
+        bool turnOn = _vignetteLabel.sprite != _onButton;
+        SetVignette(turnOn);
+        PlayerPrefs.SetInt(VIGNETTE, turnOn ? 1 : 0);
+    }
+
+    private void SetVignette(bool on)
+    {
+        _vignetteLabel.sprite = on ? _onButton : _offButton;
+        _vignetteText.text = on ? "Vignette On" : "Vignette Off";
     }
 
     private void Update()
